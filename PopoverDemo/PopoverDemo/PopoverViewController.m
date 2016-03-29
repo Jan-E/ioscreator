@@ -61,7 +61,7 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text=[NSString stringWithFormat:@"Row number %d",indexPath.row];
+    cell.textLabel.text=[NSString stringWithFormat:@"Row number %ld",(long)indexPath.row];
     
     return cell;
 }
@@ -109,6 +109,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"didSelectRowAtIndexPath %@", indexPath);
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

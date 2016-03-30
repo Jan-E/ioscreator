@@ -15,7 +15,7 @@
 @property (nonatomic,retain) UIPopoverPresentationController *popOverP;
 
 - (IBAction)projectPopover:(UIButton *)sender;
-- (IBAction)showPopover:(UIButton *)sender;
+- (IBAction)casePopover:(UIButton *)sender;
 - (IBAction)sessionPopover:(UIButton *)sender;
 
 @end
@@ -34,7 +34,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (IBAction)projectPopover:(UIButton *)sender {
     PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"PopoverViewController" bundle:nil];
     // http://stackoverflow.com/a/26944036
@@ -46,11 +45,11 @@
     //_popOverP.delegate = self;
     _popOverP.sourceView = self.view;
     _popOverP.sourceRect = sender.frame;
-    _popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    _popOverP.permittedArrowDirections = UIPopoverArrowDirectionUp;
     [self presentViewController:popNav animated:YES completion:nil];
 }
 
-- (IBAction)showPopover:(UIButton *)sender {
+- (IBAction)casePopover:(UIButton *)sender {
     PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"PopoverViewController" bundle:nil];
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];

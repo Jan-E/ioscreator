@@ -32,14 +32,14 @@
                     <rect key="frame" x="397" y="135" width="268" height="30"/>
                     <state key="normal" title="Case"/>
                     <connections>
-                        <action selector="showPopover:" destination="-1" eventType="touchUpInside" id="NhF-Jz-wfh"/>
+                        <action selector="casePopover:" destination="-1" eventType="touchUpInside" id="XlK-Yt-1aM"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-UI-3cm">
                     <rect key="frame" x="397" y="180" width="268" height="30"/>
                     <state key="normal" title="Session"/>
                     <connections>
-                        <action selector="casePopover:" destination="-1" eventType="touchUpInside" id="VMP-tO-HLT"/>
+                        <action selector="sessionPopover:" destination="-1" eventType="touchUpInside" id="8Pc-GR-SlN"/>
                     </connections>
                 </button>
             </subviews>

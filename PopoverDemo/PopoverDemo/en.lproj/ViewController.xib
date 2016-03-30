@@ -35,19 +35,22 @@
                         <action selector="casePopover:" destination="-1" eventType="touchUpInside" id="W2j-PP-Oxv"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-UI-3cm">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-UI-3cm">
                     <rect key="frame" x="397" y="180" width="268" height="30"/>
                     <state key="normal" title="Session"/>
                     <connections>
-                        <action selector="sessionPopover:" destination="-1" eventType="touchDragInside" id="9Gj-U4-f71"/>
+                        <action selector="casePopover:" destination="-1" eventType="touchUpInside" id="VMP-tO-HLT"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="At2-YZ-reH" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="15" id="23u-Fi-3v3"/>
+                <constraint firstItem="c0o-UI-3cm" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="78x-xH-Kvx"/>
+                <constraint firstItem="c0o-UI-3cm" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="Fdu-TJ-jt3"/>
                 <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="103" id="Frg-ul-5d7"/>
                 <constraint firstItem="4" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="GxC-8Q-GAd"/>
+                <constraint firstItem="c0o-UI-3cm" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="15" id="aXG-Ed-eIN"/>
                 <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="90" id="cT4-oX-6Jd"/>
                 <constraint firstItem="At2-YZ-reH" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="ruI-hK-4wJ"/>
             </constraints>

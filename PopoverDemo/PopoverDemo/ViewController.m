@@ -49,6 +49,7 @@
     _popOverP.permittedArrowDirections = UIPopoverArrowDirectionAny;
     [self presentViewController:popNav animated:YES completion:nil];
 }
+
 - (IBAction)casePopover:(UIButton *)sender {
     PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"caseVC" bundle:nil];
     // http://stackoverflow.com/a/26944036
@@ -63,6 +64,7 @@
     _popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
     [self presentViewController:popNav animated:YES completion:nil];
 }
+
 - (IBAction)sessionPopover:(UIButton *)sender {
     PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"sessionVC" bundle:nil];
     // http://stackoverflow.com/a/26944036

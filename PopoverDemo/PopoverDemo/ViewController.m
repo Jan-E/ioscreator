@@ -14,7 +14,9 @@
 //@property (nonatomic,strong) UIPopoverController *popOver;
 @property (nonatomic,retain) UIPopoverPresentationController *popOverP;
 
-- (IBAction)showPopover:(UIButton *)sender;
+- (IBAction)projectPopover:(UIButton *)sender;
+- (IBAction)casePopover:(UIButton *)sender;
+- (IBAction)sessionPopover:(UIButton *)sender;
 
 @end
 
@@ -33,8 +35,22 @@
 }
 
 
-- (IBAction)showPopover:(UIButton *)sender {
-    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"PopoverViewController" bundle:nil];
+- (IBAction)projectPopover:(UIButton *)sender {
+    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"projectVC" bundle:nil];
+    // http://stackoverflow.com/a/26944036
+    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
+    popVC.preferredContentSize = CGSizeMake(280,450);
+    popNav.modalPresentationStyle = UIModalPresentationPopover;
+    popNav.navigationBarHidden = YES;
+    _popOverP = popNav.popoverPresentationController;
+    //_popOverP.delegate = self;
+    _popOverP.sourceView = self.view;
+    _popOverP.sourceRect = sender.frame;
+    _popOverP.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    [self presentViewController:popNav animated:YES completion:nil];
+}
+- (IBAction)casePopover:(UIButton *)sender {
+    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"caseVC" bundle:nil];
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
     popVC.preferredContentSize = CGSizeMake(280,450);
@@ -47,4 +63,19 @@
     _popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
     [self presentViewController:popNav animated:YES completion:nil];
 }
+- (IBAction)sessionPopover:(UIButton *)sender {
+    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"sessionVC" bundle:nil];
+    // http://stackoverflow.com/a/26944036
+    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
+    popVC.preferredContentSize = CGSizeMake(280,450);
+    popNav.modalPresentationStyle = UIModalPresentationPopover;
+    popNav.navigationBarHidden = YES;
+    _popOverP = popNav.popoverPresentationController;
+    //_popOverP.delegate = self;
+    _popOverP.sourceView = self.view;
+    _popOverP.sourceRect = sender.frame;
+    _popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    [self presentViewController:popNav animated:YES completion:nil];
+}
+
 @end

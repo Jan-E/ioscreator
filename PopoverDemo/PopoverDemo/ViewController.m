@@ -11,7 +11,8 @@
 
 @interface ViewController ()
 
-@property (nonatomic,strong) UIPopoverController *popOver;
+//@property (nonatomic,strong) UIPopoverController *popOver;
+@property (nonatomic,retain) UIPopoverPresentationController *popOverP;
 
 - (IBAction)showPopover:(UIButton *)sender;
 
@@ -33,8 +34,17 @@
 
 
 - (IBAction)showPopover:(UIButton *)sender {
-    PopoverViewController *PopoverView =[[PopoverViewController alloc] initWithNibName:@"PopoverViewController" bundle:nil];
-    self.popOver =[[UIPopoverController alloc] initWithContentViewController:PopoverView];
-    [self.popOver presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"PopoverViewController" bundle:nil];
+    // http://stackoverflow.com/a/26944036
+    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
+    popVC.preferredContentSize = CGSizeMake(280,450);
+    popNav.modalPresentationStyle = UIModalPresentationPopover;
+    popNav.navigationBarHidden = YES;
+    _popOverP = popNav.popoverPresentationController;
+    //_popOverP.delegate = self;
+    _popOverP.sourceView = self.view;
+    _popOverP.sourceRect = sender.frame;
+    _popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    [self presentViewController:popNav animated:YES completion:nil];
 }
 @end

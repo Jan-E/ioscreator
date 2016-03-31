@@ -43,6 +43,7 @@
     [popVC.cellNames addObject:[NSString stringWithFormat:@"Project Alpha"]];
     [popVC.cellNames addObject:[NSString stringWithFormat:@"Project Beta"]];
     popVC.preferredContentSize = CGSizeMake(280, (popVC.cellNames.count<10 ? 45*popVC.cellNames.count : 450));
+    popVC.cellSelected = 0;
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
@@ -91,6 +92,7 @@
     [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 29"]];
     [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 30"]];
     popVC.preferredContentSize = CGSizeMake(280, (popVC.cellNames.count<10 ? 45*popVC.cellNames.count : 450));
+    popVC.cellSelected = 14;
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
     _popOverP = popNav.popoverPresentationController;
@@ -119,6 +121,7 @@
     [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 11"]];
     [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 12"]];
     [popVC.cellNames addObject:[NSString stringWithFormat:@"Please rename me"]];
+    popVC.cellSelected = -1;
     popVC.preferredContentSize = CGSizeMake(280, (popVC.cellNames.count<10 ? 45*popVC.cellNames.count : 450));
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;

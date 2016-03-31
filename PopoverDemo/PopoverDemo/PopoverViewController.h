@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PopoverViewController : UITableViewController
-@property (strong, nonatomic) NSMutableArray *cellNames;
+@property (nonatomic, strong) NSMutableArray *cellNames;
+@property (nonatomic) NSInteger cellSelected;
 
 @end

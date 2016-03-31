@@ -16,9 +16,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                    <rect key="frame" x="397" y="90" width="268" height="30"/>
+                    <rect key="frame" x="397" y="135" width="268" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="268" id="F6c-Gn-OZb"/>
+                        <constraint firstAttribute="width" constant="268" id="fmK-zX-Zoi"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="Project">
@@ -29,14 +29,14 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At2-YZ-reH">
-                    <rect key="frame" x="397" y="135" width="268" height="30"/>
+                    <rect key="frame" x="397" y="180" width="268" height="30"/>
                     <state key="normal" title="Case"/>
                     <connections>
                         <action selector="casePopover:" destination="-1" eventType="touchUpInside" id="XlK-Yt-1aM"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-UI-3cm">
-                    <rect key="frame" x="397" y="180" width="268" height="30"/>
+                    <rect key="frame" x="397" y="225" width="268" height="30"/>
                     <state key="normal" title="Session"/>
                     <connections>
                         <action selector="sessionPopover:" destination="-1" eventType="touchUpInside" id="8Pc-GR-SlN"/>
@@ -45,14 +45,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="At2-YZ-reH" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="15" id="23u-Fi-3v3"/>
-                <constraint firstItem="c0o-UI-3cm" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="78x-xH-Kvx"/>
-                <constraint firstItem="c0o-UI-3cm" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="Fdu-TJ-jt3"/>
-                <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="103" id="Frg-ul-5d7"/>
-                <constraint firstItem="4" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="GxC-8Q-GAd"/>
-                <constraint firstItem="c0o-UI-3cm" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="15" id="aXG-Ed-eIN"/>
-                <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="90" id="cT4-oX-6Jd"/>
-                <constraint firstItem="At2-YZ-reH" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="ruI-hK-4wJ"/>
+                <constraint firstItem="At2-YZ-reH" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="15" id="EHc-nt-hz0"/>
+                <constraint firstItem="c0o-UI-3cm" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="FeN-Go-5HN"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="135" id="LwR-ps-hca"/>
+                <constraint firstItem="4" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="PAv-qy-7l9"/>
+                <constraint firstItem="c0o-UI-3cm" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="15" id="RFJ-u5-GLy"/>
+                <constraint firstItem="c0o-UI-3cm" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="Thj-2L-qBj"/>
+                <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="103" id="uD9-Hy-WGS"/>
+                <constraint firstItem="4" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="yJZ-SG-vFM"/>
             </constraints>
             <point key="canvasLocation" x="257" y="269"/>
         </view>

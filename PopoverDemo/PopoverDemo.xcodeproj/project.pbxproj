@@ -13,13 +13,9 @@
 		E2E4FA941745019E007EACB5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2E4FA921745019E007EACB5 /* InfoPlist.strings */; };
 		E2E4FA961745019E007EACB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E4FA951745019E007EACB5 /* main.m */; };
 		E2E4FA9A1745019E007EACB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E4FA991745019E007EACB5 /* AppDelegate.m */; };
-		E2E4FA9C1745019E007EACB5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E4FA9B1745019E007EACB5 /* Default.png */; };
-		E2E4FA9E1745019E007EACB5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E4FA9D1745019E007EACB5 /* Default@2x.png */; };
-		E2E4FAA01745019E007EACB5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E4FA9F1745019E007EACB5 /* Default-568h@2x.png */; };
 		E2E4FAA31745019E007EACB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E4FAA21745019E007EACB5 /* ViewController.m */; };
 		E2E4FAA61745019E007EACB5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E4FAA41745019E007EACB5 /* ViewController.xib */; };
 		E2E4FABC17455F8B007EACB5 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E4FABA17455F8B007EACB5 /* PopoverViewController.m */; };
-		E2E4FABD17455F8B007EACB5 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E4FABB17455F8B007EACB5 /* PopoverViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,15 +29,11 @@
 		E2E4FA971745019E007EACB5 /* PopoverDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PopoverDemo-Prefix.pch"; sourceTree = "<group>"; };
 		E2E4FA981745019E007EACB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2E4FA991745019E007EACB5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E2E4FA9B1745019E007EACB5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		E2E4FA9D1745019E007EACB5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		E2E4FA9F1745019E007EACB5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E2E4FAA11745019E007EACB5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E2E4FAA21745019E007EACB5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E2E4FAA51745019E007EACB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		E2E4FAB917455F8B007EACB5 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		E2E4FABA17455F8B007EACB5 /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
-		E2E4FABB17455F8B007EACB5 /* PopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +87,6 @@
 				E2E4FAA41745019E007EACB5 /* ViewController.xib */,
 				E2E4FAB917455F8B007EACB5 /* PopoverViewController.h */,
 				E2E4FABA17455F8B007EACB5 /* PopoverViewController.m */,
-				E2E4FABB17455F8B007EACB5 /* PopoverViewController.xib */,
 				E2E4FA901745019E007EACB5 /* Supporting Files */,
 			);
 			path = PopoverDemo;
@@ -108,9 +99,6 @@
 				E2E4FA921745019E007EACB5 /* InfoPlist.strings */,
 				E2E4FA951745019E007EACB5 /* main.m */,
 				E2E4FA971745019E007EACB5 /* PopoverDemo-Prefix.pch */,
-				E2E4FA9B1745019E007EACB5 /* Default.png */,
-				E2E4FA9D1745019E007EACB5 /* Default@2x.png */,
-				E2E4FA9F1745019E007EACB5 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -167,11 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E4FA941745019E007EACB5 /* InfoPlist.strings in Resources */,
-				E2E4FA9C1745019E007EACB5 /* Default.png in Resources */,
-				E2E4FA9E1745019E007EACB5 /* Default@2x.png in Resources */,
-				E2E4FAA01745019E007EACB5 /* Default-568h@2x.png in Resources */,
 				E2E4FAA61745019E007EACB5 /* ViewController.xib in Resources */,
-				E2E4FABD17455F8B007EACB5 /* PopoverViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,7 +35,7 @@
 }
 
 - (IBAction)projectPopover:(UIButton *)sender {
-    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"PopoverViewController" bundle:nil];
+    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:nil bundle:nil];
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
     popVC.preferredContentSize = CGSizeMake(280,450);
@@ -50,7 +50,7 @@
 }
 
 - (IBAction)casePopover:(UIButton *)sender {
-    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"PopoverViewController" bundle:nil];
+    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:nil bundle:nil];
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
     popVC.preferredContentSize = CGSizeMake(280,450);
@@ -65,7 +65,7 @@
 }
 
 - (IBAction)sessionPopover:(UIButton *)sender {
-    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:@"PopoverViewController" bundle:nil];
+    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:nil bundle:nil];
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
     popVC.preferredContentSize = CGSizeMake(280,450);

@@ -32,6 +32,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.cellNames = [[NSMutableArray alloc] init];
+    [self.cellNames addObject:[NSString stringWithFormat:@"Alpha"]];
+    [self.cellNames addObject:[NSString stringWithFormat:@"Beta"]];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.cellNames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +66,12 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text=[NSString stringWithFormat:@"Row number %ld",(long)indexPath.row];
+    NSInteger i = indexPath.row;
+    if (i < self.cellNames.count) {
+        cell.textLabel.text=[NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]];
+    } else {
+        cell.textLabel.text=[NSString stringWithFormat:@"Row %ld", indexPath.row];
+    }
     
     return cell;
 }

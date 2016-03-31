@@ -74,7 +74,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger i = indexPath.row;
-    if (i == self.cellSelected) {
+    if (self.cellSelected > 0 && i == self.cellSelected-1) {
         [cell setSelected:YES animated:NO];
     }
 }

@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="caseButton" destination="At2-YZ-reH" id="tLy-xX-wH2"/>
+                <outlet property="projectButton" destination="4" id="n8l-J1-Ccd"/>
+                <outlet property="sessionButton" destination="c0o-UI-3cm" id="wGo-b2-sdL"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

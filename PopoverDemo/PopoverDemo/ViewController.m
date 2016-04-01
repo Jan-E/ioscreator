@@ -14,9 +14,9 @@
 //@property (nonatomic,strong) UIPopoverController *popOver;
 @property (nonatomic,retain) UIPopoverPresentationController *popOverP;
 @property (nonatomic,retain) PopoverViewController *popVC;
-@property (weak, nonatomic) IBOutlet UIButton *projectPopover;
-@property (weak, nonatomic) IBOutlet UIButton *casePopover;
-@property (weak, nonatomic) IBOutlet UIButton *sessionPopover;
+@property (weak, nonatomic) IBOutlet UIButton *projectButton;
+@property (weak, nonatomic) IBOutlet UIButton *caseButton;
+@property (weak, nonatomic) IBOutlet UIButton *sessionButton;
 
 - (IBAction)projectPopover:(UIButton *)sender;
 - (IBAction)casePopover:(UIButton *)sender;
@@ -146,23 +146,23 @@
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"called when a Popover is dismissed");
     NSLog(@"dismissed - self.popVC.cellSelected %d %@", self.popVC.cellSelected, self.popVC.senderButton);
-    if ([self.popVC.senderButton  isEqual: @"Proces"]) {
+    if ([self.popVC.senderButton isEqual: @"Project"]) {
         NSInteger i = self.popVC.cellSelected - 1;
         NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
-        [self.projectPopover setTitle:s forState:UIControlStateNormal];
-        NSLog(@"projectPopover %d %@", i, s);
+        [self.projectButton setTitle:s forState:UIControlStateNormal];
+        NSLog(@"projectButton %lu %d %@", (unsigned long)self.projectButton, i, s);
     }
-    if ([self.popVC.senderButton  isEqual: @"Case"]) {
+    if ([self.popVC.senderButton isEqual: @"Case"]) {
         NSInteger i = self.popVC.cellSelected - 1;
         NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
-        [self.casePopover setTitle:s forState:UIControlStateNormal];
-        NSLog(@"casePopover %@ %d %@", self.casePopover, i, s);
+        [self.caseButton setTitle:s forState:UIControlStateNormal];
+        NSLog(@"caseButton %@ %d %@", self.caseButton, i, s);
     }
     if ([self.popVC.senderButton  isEqual: @"Session"]) {
         NSInteger i = self.popVC.cellSelected - 1;
         NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
-        [self.sessionPopover setTitle:s forState:UIControlStateNormal];
-        NSLog(@"sessionPopover %d %@", i, s);
+        [self.sessionButton setTitle:s forState:UIControlStateNormal];
+        NSLog(@"sessionButton %@ %d %@", self.sessionButton, i, s);
     }
 }
 

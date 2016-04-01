@@ -10,6 +10,7 @@
 
 @interface PopoverViewController : UITableViewController
 @property (nonatomic, strong) NSMutableArray *cellNames;
+@property (nonatomic, strong) NSString *senderButton;
 @property (nonatomic) NSInteger cellSelected;
 
 @end

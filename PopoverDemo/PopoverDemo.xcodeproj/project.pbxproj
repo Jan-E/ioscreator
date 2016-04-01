@@ -81,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				E2E4FA981745019E007EACB5 /* AppDelegate.h */,
+				E2E4FA921745019E007EACB5 /* InfoPlist.strings */,
 				E2E4FA991745019E007EACB5 /* AppDelegate.m */,
 				E2E4FAA11745019E007EACB5 /* ViewController.h */,
 				E2E4FAA21745019E007EACB5 /* ViewController.m */,
@@ -96,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				E2E4FA911745019E007EACB5 /* PopoverDemo-Info.plist */,
-				E2E4FA921745019E007EACB5 /* InfoPlist.strings */,
 				E2E4FA951745019E007EACB5 /* main.m */,
 				E2E4FA971745019E007EACB5 /* PopoverDemo-Prefix.pch */,
 			);

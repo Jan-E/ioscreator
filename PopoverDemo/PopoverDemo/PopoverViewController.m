@@ -28,10 +28,14 @@
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = NO;
  
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //NSLog(@"self %@, tV %@, tV.del %@", self, self.tableView, self.tableView.delegate);
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +69,7 @@
     if (i < self.cellNames.count) {
         cell.textLabel.text=[NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]];
     } else {
-        cell.textLabel.text=[NSString stringWithFormat:@"Row %ld", indexPath.row];
+        cell.textLabel.text=[NSString stringWithFormat:@"Row %ld", (long)indexPath.row];
     }
     
     return cell;
@@ -75,7 +79,9 @@
 {
     NSInteger i = indexPath.row;
     if (self.cellSelected > 0 && i == self.cellSelected-1) {
-        [cell setSelected:YES animated:NO];
+        //[cell setSelected:YES animated:NO];
+    } else {
+        //[cell setSelected:NO animated:NO];
     }
 }
 
@@ -122,7 +128,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath %@", indexPath);
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (cell.selected) {
+        // ... Uncheck
+        //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+        //[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+    }
+    NSInteger i = indexPath.row;
+    self.cellSelected = i + 1;
+    NSLog(@"didSelectRowAtIndexPath %d, self.cellSelected = %d", indexPath.row, self.cellSelected);
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -130,6 +144,11 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"didSelectRowAtIndexPath %d", indexPath.row);
 }
 
 @end

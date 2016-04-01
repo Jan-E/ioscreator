@@ -9,10 +9,14 @@
 #import "ViewController.h"
 #import "PopoverViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIPopoverPresentationControllerDelegate>
 
 //@property (nonatomic,strong) UIPopoverController *popOver;
 @property (nonatomic,retain) UIPopoverPresentationController *popOverP;
+@property (nonatomic,retain) PopoverViewController *popVC;
+@property (weak, nonatomic) IBOutlet UIButton *projectPopover;
+@property (weak, nonatomic) IBOutlet UIButton *casePopover;
+@property (weak, nonatomic) IBOutlet UIButton *sessionPopover;
 
 - (IBAction)projectPopover:(UIButton *)sender;
 - (IBAction)casePopover:(UIButton *)sender;
@@ -35,101 +39,145 @@
 }
 
 - (IBAction)projectPopover:(UIButton *)sender {
-    
-    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:nil bundle:nil];
+    self.popVC = [[PopoverViewController alloc] initWithNibName:nil bundle:nil];
+    self.popVC.senderButton = @"Project";
     // http://stackoverflow.com/a/26944036
-    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
-    popVC.cellNames = [[NSMutableArray alloc] init];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Project Alpha"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Project Beta"]];
-    popVC.preferredContentSize = CGSizeMake(280, (popVC.cellNames.count<10 ? 45*popVC.cellNames.count : 450));
-    popVC.cellSelected = 1;
+    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:self.popVC];
+    self.popVC.cellNames = [[NSMutableArray alloc] init];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Alpha"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Beta"]];
+    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
+    NSLog(@"self.popVC.cellSelected %d", self.popVC.cellSelected);
+    self.popVC.cellSelected = 1;
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
-    _popOverP = popNav.popoverPresentationController;
-    //_popOverP.delegate = self;
-    _popOverP.sourceView = self.view;
-    _popOverP.sourceRect = sender.frame;
-    _popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    self.popOverP = popNav.popoverPresentationController;
+    self.popOverP.delegate = self;
+    self.popOverP.sourceView = self.view;
+    self.popOverP.sourceRect = sender.frame;
+    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
     [self presentViewController:popNav animated:YES completion:nil];
 }
 
 - (IBAction)casePopover:(UIButton *)sender {
-    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:nil bundle:nil];
+    self.popVC = [[PopoverViewController alloc] initWithNibName:nil bundle:nil];
+    self.popVC.senderButton = @"Case";
     // http://stackoverflow.com/a/26944036
-    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
-    popVC.preferredContentSize = CGSizeMake(280,450);
-    popVC.cellNames = [[NSMutableArray alloc] init];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 1"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 2"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 3"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 4"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 5"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 6"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 7"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 8"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 9"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 10"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 11"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 12"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 13"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 14"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 15"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 16"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 17"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 18"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 19"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 20"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 21"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 22"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 23"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 24"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 25"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 26"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 27"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 28"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 29"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 30"]];
-    popVC.preferredContentSize = CGSizeMake(280, (popVC.cellNames.count<10 ? 45*popVC.cellNames.count : 450));
-    popVC.cellSelected = 14;
+    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:self.popVC];
+    self.popVC.preferredContentSize = CGSizeMake(280,450);
+    self.popVC.cellNames = [[NSMutableArray alloc] init];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 1"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 2"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 3"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 4"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 5"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 6"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 7"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 8"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 9"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 10"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 11"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 12"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 13"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 14"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 15"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 16"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 17"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 18"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 19"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 20"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 21"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 22"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 23"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 24"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 25"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 26"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 27"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 28"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 29"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 30"]];
+    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
+    NSLog(@"self.popVC.cellSelected %d", self.popVC.cellSelected);
+    self.popVC.cellSelected = 14;
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
-    _popOverP = popNav.popoverPresentationController;
-    //_popOverP.delegate = self;
-    _popOverP.sourceView = self.view;
-    _popOverP.sourceRect = sender.frame;
-    _popOverP.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    self.popOverP = popNav.popoverPresentationController;
+    self.popOverP.delegate = self;
+    self.popOverP.sourceView = self.view;
+    self.popOverP.sourceRect = sender.frame;
+    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionUp;
     [self presentViewController:popNav animated:YES completion:nil];
 }
 
 - (IBAction)sessionPopover:(UIButton *)sender {
-    PopoverViewController *popVC =[[PopoverViewController alloc] initWithNibName:nil bundle:nil];
+    self.popVC = [[PopoverViewController alloc] initWithNibName:nil bundle:nil];
+    self.popVC.senderButton = @"Case";
     // http://stackoverflow.com/a/26944036
-    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:popVC];
-    popVC.cellNames = [[NSMutableArray alloc] init];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 1"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 2"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 3"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 4"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 5"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 6"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 7"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 8"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 9"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 10"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 11"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Session 12"]];
-    [popVC.cellNames addObject:[NSString stringWithFormat:@"Please rename me"]];
-    popVC.preferredContentSize = CGSizeMake(280, (popVC.cellNames.count<10 ? 45*popVC.cellNames.count : 450));
+    UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:self.popVC];
+    NSLog(@"self.popVC.cellSelected %d", self.popVC.cellSelected);
+    self.popVC.cellNames = [[NSMutableArray alloc] init];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 1"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 2"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 3"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 4"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 5"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 6"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 7"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 8"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 9"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 10"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 11"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 12"]];
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Please rename me"]];
+    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
-    _popOverP = popNav.popoverPresentationController;
-    //_popOverP.delegate = self;
-    _popOverP.sourceView = self.view;
-    _popOverP.sourceRect = sender.frame;
-    _popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    self.popOverP = popNav.popoverPresentationController;
+    self.popOverP.delegate = self;
+    self.popOverP.sourceView = self.view;
+    self.popOverP.sourceRect = sender.frame;
+    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
     [self presentViewController:popNav animated:YES completion:nil];
+}
+
+# pragma mark - Popover Presentation Controller Delegate
+
+- (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+    //NSLog(@"called when a Popover is dismissed");
+    NSLog(@"dismissed - self.popVC.cellSelected %d %@", self.popVC.cellSelected, self.popVC.senderButton);
+    if ([self.popVC.senderButton  isEqual: @"Proces"]) {
+        NSInteger i = self.popVC.cellSelected - 1;
+        NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+        [self.projectPopover setTitle:s forState:UIControlStateNormal];
+        NSLog(@"projectPopover %d %@", i, s);
+    }
+    if ([self.popVC.senderButton  isEqual: @"Case"]) {
+        NSInteger i = self.popVC.cellSelected - 1;
+        NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+        [self.casePopover setTitle:s forState:UIControlStateNormal];
+        NSLog(@"casePopover %@ %d %@", self.casePopover, i, s);
+    }
+    if ([self.popVC.senderButton  isEqual: @"Session"]) {
+        NSInteger i = self.popVC.cellSelected - 1;
+        NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+        [self.sessionPopover setTitle:s forState:UIControlStateNormal];
+        NSLog(@"sessionPopover %d %@", i, s);
+    }
+}
+
+- (BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+    //NSLog(@"return if a Popover should (not) dismissed");
+    //NSLog(@"should dismiss - self.popVC.cellSelected %d", self.popVC.cellSelected);
+    
+    // return YES if the Popover should be dismissed
+    // return NO if the Popover should not be dismissed
+    return YES;
+}
+
+- (void)popoverPresentationController:(UIPopoverPresentationController *)popoverPresentationController willRepositionPopoverToRect:(inout CGRect *)rect inView:(inout UIView *__autoreleasing  _Nonnull *)view {
+    NSLog(@"called when the Popover changes position");
+    NSLog(@"self.popVC.cellSelected %d", self.popVC.cellSelected);
 }
 
 @end

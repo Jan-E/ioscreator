@@ -146,29 +146,31 @@
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"called when a Popover is dismissed");
     NSLog(@"dismissed - self.popVC.cellSelected %ld %@", (long)self.popVC.cellSelected, self.popVC.senderButton);
-    if ([self.popVC.senderButton isEqual: @"Project"]) {
-        NSInteger i = self.popVC.cellSelected - 1;
-        NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
-        [self.projectButton setTitle:s forState:UIControlStateNormal];
-        NSLog(@"projectButton %ld %@", (long)i, s);
-    }
-    if ([self.popVC.senderButton isEqual: @"Case"]) {
-        NSInteger i = self.popVC.cellSelected - 1;
-        NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
-        [self.caseButton setTitle:s forState:UIControlStateNormal];
-        NSLog(@"caseButton %ld %@", (long)i, s);
-    }
-    if ([self.popVC.senderButton  isEqual: @"Session"]) {
-        NSInteger i = self.popVC.cellSelected - 1;
-        NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
-        [self.sessionButton setTitle:s forState:UIControlStateNormal];
-        NSLog(@"sessionButton %ld %@", (long)i, s);
+    if (self.popVC.cellSelected > 0) {
+        if ([self.popVC.senderButton isEqual: @"Project"]) {
+            NSInteger i = self.popVC.cellSelected - 1;
+            NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+            [self.projectButton setTitle:s forState:UIControlStateNormal];
+            NSLog(@"projectButton %ld %@", (long)i, s);
+        }
+        if ([self.popVC.senderButton isEqual: @"Case"]) {
+            NSInteger i = self.popVC.cellSelected - 1;
+            NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+            [self.caseButton setTitle:s forState:UIControlStateNormal];
+            NSLog(@"caseButton %ld %@", (long)i, s);
+        }
+        if ([self.popVC.senderButton  isEqual: @"Session"]) {
+            NSInteger i = self.popVC.cellSelected - 1;
+            NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+            [self.sessionButton setTitle:s forState:UIControlStateNormal];
+            NSLog(@"sessionButton %ld %@", (long)i, s);
+        }
     }
 }
 
 - (BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"return if a Popover should (not) dismissed");
-    //NSLog(@"should dismiss - self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
+    NSLog(@"should dismiss - self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     
     // return YES if the Popover should be dismissed
     // return NO if the Popover should not be dismissed

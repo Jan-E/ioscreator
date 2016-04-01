@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
@@ -45,9 +46,20 @@
                         <action selector="sessionPopover:" destination="-1" eventType="touchUpInside" id="8Pc-GR-SlN"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efe-Hw-2lu">
+                    <rect key="frame" x="673" y="22" width="87" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="87" id="9zs-u5-w9g"/>
+                    </constraints>
+                    <state key="normal" title="Next"/>
+                    <connections>
+                        <action selector="reload" destination="-2" eventType="touchUpInside" id="hvR-Rh-aK4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="efe-Hw-2lu" firstAttribute="trailing" secondItem="2" secondAttribute="trailingMargin" id="DxU-6Y-fK1"/>
                 <constraint firstItem="At2-YZ-reH" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="15" id="EHc-nt-hz0"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="FeN-Go-5HN"/>
                 <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="135" id="LwR-ps-hca"/>
@@ -55,6 +67,7 @@
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="15" id="RFJ-u5-GLy"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="Thj-2L-qBj"/>
                 <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="103" id="uD9-Hy-WGS"/>
+                <constraint firstItem="efe-Hw-2lu" firstAttribute="top" secondItem="2" secondAttribute="top" constant="22" id="wEH-gN-3nS"/>
                 <constraint firstItem="4" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="yJZ-SG-vFM"/>
             </constraints>
             <point key="canvasLocation" x="257" y="269"/>

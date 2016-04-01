@@ -137,6 +137,7 @@
     NSInteger i = indexPath.row;
     self.cellSelected = i + 1;
     NSLog(@"didSelectRowAtIndexPath %ld, self.cellSelected = %ld", (long)indexPath.row, (long)self.cellSelected);
+    //[self dismissViewControllerAnimated:YES completion:nil];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -151,4 +152,7 @@
     NSLog(@"didSelectRowAtIndexPath %ld", (long)indexPath.row);
 }
 
+- (void)dismissMe {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

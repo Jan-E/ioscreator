@@ -47,7 +47,7 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Alpha"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Beta"]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
-    NSLog(@"self.popVC.cellSelected %d", self.popVC.cellSelected);
+    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     self.popVC.cellSelected = 1;
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
@@ -98,7 +98,7 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 29"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 30"]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
-    NSLog(@"self.popVC.cellSelected %d", self.popVC.cellSelected);
+    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     self.popVC.cellSelected = 14;
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
@@ -112,10 +112,10 @@
 
 - (IBAction)sessionPopover:(UIButton *)sender {
     self.popVC = [[PopoverViewController alloc] initWithNibName:nil bundle:nil];
-    self.popVC.senderButton = @"Case";
+    self.popVC.senderButton = @"Session";
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:self.popVC];
-    NSLog(@"self.popVC.cellSelected %d", self.popVC.cellSelected);
+    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     self.popVC.cellNames = [[NSMutableArray alloc] init];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 1"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 2"]];
@@ -145,30 +145,30 @@
 
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"called when a Popover is dismissed");
-    NSLog(@"dismissed - self.popVC.cellSelected %d %@", self.popVC.cellSelected, self.popVC.senderButton);
+    NSLog(@"dismissed - self.popVC.cellSelected %ld %@", (long)self.popVC.cellSelected, self.popVC.senderButton);
     if ([self.popVC.senderButton isEqual: @"Project"]) {
         NSInteger i = self.popVC.cellSelected - 1;
         NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
         [self.projectButton setTitle:s forState:UIControlStateNormal];
-        NSLog(@"projectButton %lu %d %@", (unsigned long)self.projectButton, i, s);
+        NSLog(@"projectButton %ld %@", (long)i, s);
     }
     if ([self.popVC.senderButton isEqual: @"Case"]) {
         NSInteger i = self.popVC.cellSelected - 1;
         NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
         [self.caseButton setTitle:s forState:UIControlStateNormal];
-        NSLog(@"caseButton %@ %d %@", self.caseButton, i, s);
+        NSLog(@"caseButton %ld %@", (long)i, s);
     }
     if ([self.popVC.senderButton  isEqual: @"Session"]) {
         NSInteger i = self.popVC.cellSelected - 1;
         NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
         [self.sessionButton setTitle:s forState:UIControlStateNormal];
-        NSLog(@"sessionButton %@ %d %@", self.sessionButton, i, s);
+        NSLog(@"sessionButton %ld %@", (long)i, s);
     }
 }
 
 - (BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"return if a Popover should (not) dismissed");
-    //NSLog(@"should dismiss - self.popVC.cellSelected %d", self.popVC.cellSelected);
+    //NSLog(@"should dismiss - self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     
     // return YES if the Popover should be dismissed
     // return NO if the Popover should not be dismissed
@@ -177,7 +177,7 @@
 
 - (void)popoverPresentationController:(UIPopoverPresentationController *)popoverPresentationController willRepositionPopoverToRect:(inout CGRect *)rect inView:(inout UIView *__autoreleasing  _Nonnull *)view {
     NSLog(@"called when the Popover changes position");
-    NSLog(@"self.popVC.cellSelected %d", self.popVC.cellSelected);
+    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
 }
 
 @end

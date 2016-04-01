@@ -136,7 +136,7 @@
     }
     NSInteger i = indexPath.row;
     self.cellSelected = i + 1;
-    NSLog(@"didSelectRowAtIndexPath %d, self.cellSelected = %d", indexPath.row, self.cellSelected);
+    NSLog(@"didSelectRowAtIndexPath %ld, self.cellSelected = %ld", (long)indexPath.row, (long)self.cellSelected);
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -148,7 +148,7 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath %d", indexPath.row);
+    NSLog(@"didSelectRowAtIndexPath %ld", (long)indexPath.row);
 }
 
 @end

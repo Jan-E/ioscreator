@@ -59,19 +59,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    NSInteger i = indexPath.row;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
-    NSInteger i = indexPath.row;
     if (i < self.cellNames.count) {
-        cell.textLabel.text=[NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]];
+        if ([[self.cellNames objectAtIndex:i] isEqual: @"Please rename me"]) {
+            //NSLog(@"height %f", tableView.frame.size.width);
+            self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,(tableView.frame.size.width-32),25)];
+            self.myTextField.adjustsFontSizeToFitWidth = NO;
+            self.myTextField.backgroundColor = [UIColor clearColor];
+            self.myTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+            self.myTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+            self.myTextField.keyboardType = UIKeyboardTypeDefault;
+            self.myTextField.returnKeyType = UIReturnKeyDone;
+            self.myTextField.clearButtonMode = UITextFieldViewModeNever;
+            self.myTextField.placeholder = [self.cellNames objectAtIndex:i];
+            //self.myTextField.delegate = self;
+            cell.accessoryView = self.myTextField;
+        } else {
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]];
+        }
     } else {
-        cell.textLabel.text=[NSString stringWithFormat:@"Row %ld", (long)indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"Row %ld", (long)indexPath.row];
     }
-    
     return cell;
 }
 
@@ -137,6 +151,7 @@
     NSInteger i = indexPath.row;
     self.cellSelected = i + 1;
     NSLog(@"didSelectRowAtIndexPath %ld, self.cellSelected = %ld", (long)indexPath.row, (long)self.cellSelected);
+    self.myTextField.text = @"";
     //[self dismissViewControllerAnimated:YES completion:nil];
     // Navigation logic may go here. Create and push another view controller.
     /*

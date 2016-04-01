@@ -146,7 +146,8 @@
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"called when a Popover is dismissed");
     NSLog(@"dismissed - self.popVC.cellSelected %ld %@", (long)self.popVC.cellSelected, self.popVC.senderButton);
-    if (self.popVC.cellSelected > 0) {
+    UITextField *editableCell = self.popVC.myTextField;
+    if (self.popVC.cellSelected > 0 || ![editableCell.text isEqual: @""]) {
         if ([self.popVC.senderButton isEqual: @"Project"]) {
             NSInteger i = self.popVC.cellSelected - 1;
             NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
@@ -160,8 +161,16 @@
             NSLog(@"caseButton %ld %@", (long)i, s);
         }
         if ([self.popVC.senderButton  isEqual: @"Session"]) {
-            NSInteger i = self.popVC.cellSelected - 1;
-            NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+            NSLog(@"editableCell %@", editableCell.text);
+            NSInteger i;
+            NSString *s;
+            if (![editableCell.text isEqual: @""]) {
+                i = self.popVC.cellNames.count - 1;
+                s = editableCell.text;
+            } else {
+                i = self.popVC.cellSelected - 1;
+                s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+            }
             [self.sessionButton setTitle:s forState:UIControlStateNormal];
             NSLog(@"sessionButton %ld %@", (long)i, s);
         }

@@ -90,17 +90,17 @@
     }
     
     // Configure the cell...
-    NSInteger i = indexPath.row;
+    //NSInteger i = indexPath.row;
     if (indexPath.row < self.cellNames.count) {
         if (indexPath.row == (self.cellNames.count - 1)) {
             if (!self.textFieldLoaded) {
                 cell.accessoryView = self.myTextField;
-                NSLog(@"row %ld := %@", (long)i, [NSString stringWithFormat:@"%@", self.myTextField.text]);
+                NSLog(@"row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", self.myTextField.text]);
                 self.textFieldLoaded += 1;
             }
         } else {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]];
-            NSLog(@"row %ld := %@", (long)i, [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]]);
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:indexPath.row]];
+            NSLog(@"row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:indexPath.row]]);
         }
     } else {
         cell.textLabel.text = [NSString stringWithFormat:@"Row %ld", (long)indexPath.row];

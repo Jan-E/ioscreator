@@ -79,8 +79,8 @@
     
     // Configure the cell...
     if (i < self.cellNames.count) {
-        if ([[self.cellNames objectAtIndex:i] isEqual: @"Please rename me"]) {
-            //NSLog(@"height %f", tableView.frame.size.width);
+        if (i == (self.cellNames.count - 1)) {
+            NSLog(@"height %ld %f", i, tableView.frame.size.width);
             self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,(tableView.frame.size.width-32),25)];
             self.myTextField.adjustsFontSizeToFitWidth = NO;
             self.myTextField.backgroundColor = [UIColor clearColor];

@@ -30,9 +30,6 @@
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
  
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //NSLog(@"self %@, tV %@, tV.del %@", self, self.tableView, self.tableView.delegate);
@@ -42,6 +39,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (self.cellSelected > 0) {
+        NSInteger i = self.cellSelected - 1;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        NSLog(@"scrollToRowAtIndexPath %ld", (long)i);
+    }
+}
+
+- (void)dismissMe {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -91,12 +103,6 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger i = indexPath.row;
-    if (self.cellSelected > 0 && i == self.cellSelected-1) {
-        //[cell setSelected:YES animated:NO];
-    } else {
-        //[cell setSelected:NO animated:NO];
-    }
 }
 
 /*
@@ -142,17 +148,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    if (cell.selected) {
-        // ... Uncheck
-        //[tableView deselectRowAtIndexPath:indexPath animated:YES];
-        //[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
-    }
     NSInteger i = indexPath.row;
     self.cellSelected = i + 1;
     NSLog(@"didSelectRowAtIndexPath %ld, self.cellSelected = %ld", (long)indexPath.row, (long)self.cellSelected);
     self.myTextField.text = @"";
-    //[self dismissViewControllerAnimated:YES completion:nil];
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -164,10 +164,12 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath %ld", (long)indexPath.row);
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (cell.selected) {
+        // ... Uncheck
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    NSLog(@"didDeselectRowAtIndexPath %ld", (long)indexPath.row);
 }
 
-- (void)dismissMe {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 @end

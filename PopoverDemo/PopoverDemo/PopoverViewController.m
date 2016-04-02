@@ -98,6 +98,7 @@
                 NSLog(@"row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", self.myTextField.text]);
                 self.textFieldLoaded += 1;
             }
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", self.myTextField.text];
         } else {
             cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:indexPath.row]];
             NSLog(@"row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:indexPath.row]]);

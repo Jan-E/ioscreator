@@ -164,7 +164,7 @@
             NSLog(@"editableCell %@", editableCell.text);
             NSInteger i;
             NSString *s;
-            if (![editableCell.text isEqual: @""]) {
+            if (editableCell.text && ![editableCell.text isEqual: @""]) {
                 i = self.popVC.cellNames.count - 1;
                 s = editableCell.text;
             } else {

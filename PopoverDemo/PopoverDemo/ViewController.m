@@ -51,6 +51,7 @@
     self.popVC.senderButton = @"Project";
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:self.popVC];
+    self.popVC.textFieldEnabled = 0;
     self.popVC.cellNames = [[NSMutableArray alloc] init];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Alpha"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Beta"]];
@@ -74,6 +75,7 @@
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:self.popVC];
     self.popVC.preferredContentSize = CGSizeMake(280,450);
+    self.popVC.textFieldEnabled = 0;
     self.popVC.cellNames = [[NSMutableArray alloc] init];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 1"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 2"]];
@@ -125,6 +127,7 @@
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:self.popVC];
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
+    self.popVC.textFieldEnabled = 1;
     self.popVC.cellNames = [[NSMutableArray alloc] init];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 1"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 2"]];

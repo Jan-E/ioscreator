@@ -92,7 +92,7 @@
     // Configure the cell...
     //NSInteger i = indexPath.row;
     if (indexPath.row < self.cellNames.count) {
-        if (indexPath.row == (self.cellNames.count - 1)) {
+        if (self.textFieldEnabled && indexPath.row == (self.cellNames.count - 1)) {
             if (!self.textFieldLoaded) {
                 cell.accessoryView = self.myTextField;
                 NSLog(@"row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", self.myTextField.text]);

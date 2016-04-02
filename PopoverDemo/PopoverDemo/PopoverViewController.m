@@ -81,6 +81,7 @@
     if (i < self.cellNames.count) {
         if (i == (self.cellNames.count - 1)) {
             NSLog(@"height %ld %f", (long)i, tableView.frame.size.width);
+            self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,280-32,25)];
             self.myTextField.adjustsFontSizeToFitWidth = NO;
             self.myTextField.backgroundColor = [UIColor clearColor];
             self.myTextField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -89,6 +90,7 @@
             self.myTextField.returnKeyType = UIReturnKeyDone;
             self.myTextField.clearButtonMode = UITextFieldViewModeNever;
             self.myTextField.placeholder = @"Enter text here";
+            self.myTextField.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]];
             //self.myTextField.delegate = self;
             cell.accessoryView = self.myTextField;
         } else {

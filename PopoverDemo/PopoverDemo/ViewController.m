@@ -138,9 +138,7 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 10"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 11"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 12"]];
-    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Please rename me"]];
-    self.popVC.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,280-32,25)];
-    self.popVC.myTextField.text = self.sessionTitle;
+    [self.popVC.cellNames addObject:[NSString stringWithFormat:@"%@", (self.sessionTitle ? self.sessionTitle : @"")]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
     self.popVC.cellSelected = self.sessionIndex;
     

@@ -80,8 +80,7 @@
     // Configure the cell...
     if (i < self.cellNames.count) {
         if (i == (self.cellNames.count - 1)) {
-            NSLog(@"height %ld %f", i, tableView.frame.size.width);
-            self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,(tableView.frame.size.width-32),25)];
+            NSLog(@"height %ld %f", (long)i, tableView.frame.size.width);
             self.myTextField.adjustsFontSizeToFitWidth = NO;
             self.myTextField.backgroundColor = [UIColor clearColor];
             self.myTextField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -89,7 +88,7 @@
             self.myTextField.keyboardType = UIKeyboardTypeDefault;
             self.myTextField.returnKeyType = UIReturnKeyDone;
             self.myTextField.clearButtonMode = UITextFieldViewModeNever;
-            self.myTextField.placeholder = [self.cellNames objectAtIndex:i];
+            self.myTextField.placeholder = @"Enter text here";
             //self.myTextField.delegate = self;
             cell.accessoryView = self.myTextField;
         } else {

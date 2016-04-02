@@ -17,6 +17,7 @@
 @property (nonatomic) NSInteger projectIndex;
 @property (nonatomic) NSInteger caseIndex;
 @property (nonatomic) NSInteger sessionIndex;
+@property (nonatomic) NSString *sessionTitle;
 @property (weak, nonatomic) IBOutlet UIButton *projectButton;
 @property (weak, nonatomic) IBOutlet UIButton *caseButton;
 @property (weak, nonatomic) IBOutlet UIButton *sessionButton;
@@ -138,6 +139,8 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 11"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 12"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Please rename me"]];
+    self.popVC.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,280-32,25)];
+    self.popVC.myTextField.text = self.sessionTitle;
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
     self.popVC.cellSelected = self.sessionIndex;
     
@@ -179,6 +182,7 @@
             if (editableCell.text && ![editableCell.text isEqual: @""]) {
                 i = self.popVC.cellNames.count - 1;
                 s = editableCell.text;
+                self.sessionTitle = s;
             } else {
                 i = self.popVC.cellSelected - 1;
                 s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];

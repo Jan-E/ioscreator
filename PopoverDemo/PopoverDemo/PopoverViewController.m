@@ -32,6 +32,19 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,280-32,25)];
+    self.myTextField.adjustsFontSizeToFitWidth = NO;
+    self.myTextField.backgroundColor = [UIColor clearColor];
+    self.myTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.myTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    self.myTextField.keyboardType = UIKeyboardTypeDefault;
+    self.myTextField.returnKeyType = UIReturnKeyDone;
+    self.myTextField.clearButtonMode = UITextFieldViewModeNever;
+    self.myTextField.placeholder = @"Enter text here";
+    self.myTextField.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:(self.cellNames.count-1)]];
+    //self.myTextField.delegate = self;
+    
     //NSLog(@"self %@, tV %@, tV.del %@", self, self.tableView, self.tableView.delegate);
 }
 
@@ -71,30 +84,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    NSInteger i = indexPath.row;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
-    if (i < self.cellNames.count) {
-        if (i == (self.cellNames.count - 1)) {
-            NSLog(@"height %ld %f", (long)i, tableView.frame.size.width);
-            self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,280-32,25)];
-            self.myTextField.adjustsFontSizeToFitWidth = NO;
-            self.myTextField.backgroundColor = [UIColor clearColor];
-            self.myTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-            self.myTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-            self.myTextField.keyboardType = UIKeyboardTypeDefault;
-            self.myTextField.returnKeyType = UIReturnKeyDone;
-            self.myTextField.clearButtonMode = UITextFieldViewModeNever;
-            self.myTextField.placeholder = @"Enter text here";
-            self.myTextField.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]];
-            //self.myTextField.delegate = self;
-            cell.accessoryView = self.myTextField;
+    NSInteger i = indexPath.row;
+    if (indexPath.row < self.cellNames.count) {
+        if (indexPath.row == (self.cellNames.count - 1)) {
+            if (!self.textFieldLoaded) {
+                cell.accessoryView = self.myTextField;
+                NSLog(@"row %ld := %@", (long)i, [NSString stringWithFormat:@"%@", self.myTextField.text]);
+                self.textFieldLoaded += 1;
+            }
         } else {
             cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]];
+            NSLog(@"row %ld := %@", (long)i, [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:i]]);
         }
     } else {
         cell.textLabel.text = [NSString stringWithFormat:@"Row %ld", (long)indexPath.row];

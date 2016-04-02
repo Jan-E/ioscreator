@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *senderButton;
 @property (nonatomic) NSInteger cellSelected;
 @property (nonatomic) UITextField *myTextField;
+@property (nonatomic) NSInteger textFieldLoaded;
 
 @end

@@ -14,6 +14,9 @@
 //@property (nonatomic,strong) UIPopoverController *popOver;
 @property (nonatomic,retain) UIPopoverPresentationController *popOverP;
 @property (nonatomic,retain) PopoverViewController *popVC;
+@property (nonatomic) NSInteger projectIndex;
+@property (nonatomic) NSInteger caseIndex;
+@property (nonatomic) NSInteger sessionIndex;
 @property (weak, nonatomic) IBOutlet UIButton *projectButton;
 @property (weak, nonatomic) IBOutlet UIButton *caseButton;
 @property (weak, nonatomic) IBOutlet UIButton *sessionButton;
@@ -30,6 +33,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // For the demo
+    self.projectIndex = 1;
+    self.caseIndex = 14;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +55,7 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Beta"]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
-    self.popVC.cellSelected = 1;
+    self.popVC.cellSelected = self.projectIndex;;
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
@@ -99,7 +106,8 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 30"]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
-    self.popVC.cellSelected = 14;
+    self.popVC.cellSelected = self.caseIndex;
+    
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
     self.popOverP = popNav.popoverPresentationController;
@@ -131,6 +139,8 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 12"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Please rename me"]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
+    self.popVC.cellSelected = self.sessionIndex;
+    
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
     self.popOverP = popNav.popoverPresentationController;
@@ -152,12 +162,14 @@
             NSInteger i = self.popVC.cellSelected - 1;
             NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
             [self.projectButton setTitle:s forState:UIControlStateNormal];
+            self.projectIndex = i + 1;
             NSLog(@"projectButton %ld %@", (long)i, s);
         }
         if ([self.popVC.senderButton isEqual: @"Case"]) {
             NSInteger i = self.popVC.cellSelected - 1;
             NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
             [self.caseButton setTitle:s forState:UIControlStateNormal];
+            self.caseIndex = i + 1;
             NSLog(@"caseButton %ld %@", (long)i, s);
         }
         if ([self.popVC.senderButton  isEqual: @"Session"]) {
@@ -172,6 +184,7 @@
                 s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
             }
             [self.sessionButton setTitle:s forState:UIControlStateNormal];
+            self.sessionIndex = i + 1;
             NSLog(@"sessionButton %ld %@", (long)i, s);
         }
     }

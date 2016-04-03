@@ -159,7 +159,7 @@
 
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"called when a Popover is dismissed");
-    NSLog(@"dismissed - self.popVC.cellSelected %ld %@", (long)self.popVC.cellSelected, self.popVC.senderButton);
+    NSLog(@"dismissed %@, self.popVC.cellSelected = %ld", self.popVC.senderButton, (long)self.popVC.cellSelected);
     UITextField *editableCell = self.popVC.myTextField;
     if (self.popVC.cellSelected > 0 || ![editableCell.text isEqual: @""]) {
         if ([self.popVC.senderButton isEqual: @"Project"]) {
@@ -197,7 +197,7 @@
 
 - (BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"return if a Popover should (not) dismissed");
-    NSLog(@"should dismiss - self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
+    NSLog(@"should (not dismis %@, self.popVC.cellSelected = %ld", self.popVC.senderButton, (long)self.popVC.cellSelected);
     
     // return YES if the Popover should be dismissed
     // return NO if the Popover should not be dismissed

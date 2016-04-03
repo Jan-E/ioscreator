@@ -36,7 +36,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,10,280-32,25)];
+    self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,0,280-32-100,45)];
     self.myTextField.adjustsFontSizeToFitWidth = NO;
     self.myTextField.backgroundColor = [UIColor clearColor];
     self.myTextField.autocorrectionType = UITextAutocorrectionTypeNo;

@@ -94,8 +94,9 @@
     if (self.textFieldEnabled && indexPath.row == (self.cellNames.count - 1)) {
         if (!self.textFieldLoaded) {
             cell.accessoryView = self.myTextField;
+            // prevent more next accessoryViews:
             self.textFieldLoaded += 1;
-            NSLog(@"accessoryView row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", self.myTextField.text]);
+            NSLog(@"accessoryView row %ld", (long)indexPath.row);
         }
         cell.textLabel.text = [NSString stringWithFormat:@"%@", self.myTextField.text];
         NSLog(@"last row %ld := %@", (long)indexPath.row, cell.textLabel.text);

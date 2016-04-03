@@ -56,8 +56,8 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Alpha"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Project Beta"]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
-    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     self.popVC.cellSelected = self.projectIndex;;
+    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
@@ -108,8 +108,8 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 29"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Case Alpha - 30"]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
-    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     self.popVC.cellSelected = self.caseIndex;
+    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
@@ -126,7 +126,6 @@
     self.popVC.senderButton = @"Session";
     // http://stackoverflow.com/a/26944036
     UINavigationController *popNav = [[UINavigationController alloc] initWithRootViewController:self.popVC];
-    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     self.popVC.textFieldEnabled = 1;
     self.popVC.cellNames = [[NSMutableArray alloc] init];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 1"]];
@@ -144,6 +143,7 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"%@", (self.sessionTitle ? self.sessionTitle : @"")]];
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
     self.popVC.cellSelected = self.sessionIndex;
+    NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;

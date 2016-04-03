@@ -37,9 +37,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,0,self.preferredContentSize.width-32-100,45)];
+    self.myTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,0,self.preferredContentSize.width-32,45)];
     self.myTextField.adjustsFontSizeToFitWidth = NO;
-    self.myTextField.backgroundColor = [UIColor colorWithRed:1.000 green:1.000 blue:0.666 alpha:0.5];
+    self.myTextField.backgroundColor = [UIColor colorWithRed:1.000 green:1.000 blue:0.666 alpha:0.3];
     self.myTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.myTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
     self.myTextField.keyboardType = UIKeyboardTypeDefault;
@@ -92,6 +92,7 @@
     
     // Configure the cell...
     if (self.textFieldEnabled && indexPath.row == (self.cellNames.count - 1)) {
+        // use different identifier http://stackoverflow.com/a/15350437
         cell = [tableView dequeueReusableCellWithIdentifier:@"editableCell" forIndexPath:indexPath];
         if (!self.textFieldLoaded) {
             cell.accessoryView = self.myTextField;

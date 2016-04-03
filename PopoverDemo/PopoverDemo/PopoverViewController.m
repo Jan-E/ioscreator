@@ -26,7 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    // registerClass http://stackoverflow.com/a/25835438
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
  
@@ -83,9 +86,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //NSLog(@"indexPath.section = %d, indexPath.row = %d", indexPath.section, indexPath.row);
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil)
+    {
+        NSLog(@"in nil should never happen");
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
@@ -95,7 +102,7 @@
         if (self.textFieldEnabled && indexPath.row == (self.cellNames.count - 1)) {
             if (!self.textFieldLoaded) {
                 cell.accessoryView = self.myTextField;
-                NSLog(@"row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", self.myTextField.text]);
+                NSLog(@"accessoryView row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", self.myTextField.text]);
                 self.textFieldLoaded += 1;
             }
             cell.textLabel.text = [NSString stringWithFormat:@"%@", self.myTextField.text];

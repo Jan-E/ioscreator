@@ -90,28 +90,18 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if (cell == nil)
-    {
-        NSLog(@"in nil should never happen");
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
     // Configure the cell...
-    //NSInteger i = indexPath.row;
-    if (indexPath.row < self.cellNames.count) {
-        if (self.textFieldEnabled && indexPath.row == (self.cellNames.count - 1)) {
-            if (!self.textFieldLoaded) {
-                cell.accessoryView = self.myTextField;
-                NSLog(@"accessoryView row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", self.myTextField.text]);
-                self.textFieldLoaded += 1;
-            }
-            cell.textLabel.text = [NSString stringWithFormat:@"%@", self.myTextField.text];
-        } else {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:indexPath.row]];
-            NSLog(@"row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:indexPath.row]]);
+    if (self.textFieldEnabled && indexPath.row == (self.cellNames.count - 1)) {
+        if (!self.textFieldLoaded) {
+            cell.accessoryView = self.myTextField;
+            self.textFieldLoaded += 1;
+            NSLog(@"accessoryView row %ld := %@", (long)indexPath.row, [NSString stringWithFormat:@"%@", self.myTextField.text]);
         }
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", self.myTextField.text];
+        NSLog(@"last row %ld := %@", (long)indexPath.row, cell.textLabel.text);
     } else {
-        cell.textLabel.text = [NSString stringWithFormat:@"Row %ld", (long)indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:indexPath.row]];
+        NSLog(@"row %ld := %@", (long)indexPath.row, cell.textLabel.text);
     }
     return cell;
 }

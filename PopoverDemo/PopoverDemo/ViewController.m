@@ -199,7 +199,7 @@
 
 - (BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"return if a Popover should (not) dismissed");
-    NSLog(@"should (not dismis %@, self.popVC.cellSelected = %ld", self.popVC.senderButton, (long)self.popVC.cellSelected);
+    NSLog(@"should (or not) dismiss %@, self.popVC.cellSelected = %ld", self.popVC.senderButton, (long)self.popVC.cellSelected);
     
     // return YES if the Popover should be dismissed
     // return NO if the Popover should not be dismissed

@@ -39,7 +39,7 @@
     self.projectIndex = 1;
     self.caseIndex = 14;
     self.sessionIndex = 10;
-    NSLog(@"Preselections for demo: %d %d %d", self.projectIndex, self.caseIndex, self.sessionIndex);
+    NSLog(@"Preselections for demo: %ld %ld %ld", (long)self.projectIndex, (long)self.caseIndex, (long)self.sessionIndex);
 }
 
 - (void)didReceiveMemoryWarning

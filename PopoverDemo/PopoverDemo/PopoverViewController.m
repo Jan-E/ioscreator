@@ -29,6 +29,7 @@
     
     // registerClass http://stackoverflow.com/a/25835438
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"editableCell"];
     
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
@@ -87,11 +88,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //NSLog(@"indexPath.section = %d, indexPath.row = %d", indexPath.section, indexPath.row);
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = nil;
     
     // Configure the cell...
     if (self.textFieldEnabled && indexPath.row == (self.cellNames.count - 1)) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"editableCell" forIndexPath:indexPath];
         if (!self.textFieldLoaded) {
             cell.accessoryView = self.myTextField;
             // prevent more next accessoryViews:
@@ -101,6 +102,7 @@
         cell.textLabel.text = [NSString stringWithFormat:@"%@", self.myTextField.text];
         NSLog(@"last row %ld := %@", (long)indexPath.row, cell.textLabel.text);
     } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.cellNames objectAtIndex:indexPath.row]];
         NSLog(@"row %ld := %@", (long)indexPath.row, cell.textLabel.text);
     }

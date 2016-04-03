@@ -167,14 +167,14 @@
             NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
             [self.projectButton setTitle:s forState:UIControlStateNormal];
             self.projectIndex = i + 1;
-            NSLog(@"projectButton %ld %@", (long)i, s);
+            NSLog(@"projectButton := %@ (row %ld)", s, (long)i);
         }
         if ([self.popVC.senderButton isEqual: @"Case"]) {
             NSInteger i = self.popVC.cellSelected - 1;
             NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
             [self.caseButton setTitle:s forState:UIControlStateNormal];
             self.caseIndex = i + 1;
-            NSLog(@"caseButton %ld %@", (long)i, s);
+            NSLog(@"caseButton := %@ (row %ld)", s, (long)i);
         }
         if ([self.popVC.senderButton  isEqual: @"Session"]) {
             NSLog(@"editableCell %@", editableCell.text);
@@ -190,7 +190,7 @@
             }
             [self.sessionButton setTitle:s forState:UIControlStateNormal];
             self.sessionIndex = i + 1;
-            NSLog(@"sessionButton %ld %@", (long)i, s);
+            NSLog(@"sessionButton := %@ (row %ld)", s, (long)i);
         }
     }
 }

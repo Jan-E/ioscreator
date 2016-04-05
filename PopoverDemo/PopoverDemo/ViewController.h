@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BFPaperCheckbox.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <BFPaperCheckboxDelegate>
 //@property (nonatomic,retain) UIPopoverPresentationController *popOverP;
 
 @end

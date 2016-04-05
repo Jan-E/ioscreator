@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10EDC59ABFBBC92F4DCECEBB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE359F9C0871B02435FA4A0C /* libPods.a */; };
 		E2E4FA8A1745019E007EACB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E4FA891745019E007EACB5 /* UIKit.framework */; };
 		E2E4FA8C1745019E007EACB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E4FA8B1745019E007EACB5 /* Foundation.framework */; };
 		E2E4FA8E1745019E007EACB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E4FA8D1745019E007EACB5 /* CoreGraphics.framework */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		332A0EE579A225DCC3841C63 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BE359F9C0871B02435FA4A0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D61A7E00165EF893CEC2B2DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E2E4FA861745019E007EACB5 /* PopoverDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopoverDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E4FA891745019E007EACB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2E4FA8B1745019E007EACB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -44,18 +48,29 @@
 				E2E4FA8A1745019E007EACB5 /* UIKit.framework in Frameworks */,
 				E2E4FA8C1745019E007EACB5 /* Foundation.framework in Frameworks */,
 				E2E4FA8E1745019E007EACB5 /* CoreGraphics.framework in Frameworks */,
+				10EDC59ABFBBC92F4DCECEBB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62B16B060C6854558C9ACAFF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D61A7E00165EF893CEC2B2DD /* Pods.debug.xcconfig */,
+				332A0EE579A225DCC3841C63 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E2E4FA7D1745019E007EACB5 = {
 			isa = PBXGroup;
 			children = (
 				E2E4FA8F1745019E007EACB5 /* PopoverDemo */,
 				E2E4FA881745019E007EACB5 /* Frameworks */,
 				E2E4FA871745019E007EACB5 /* Products */,
+				62B16B060C6854558C9ACAFF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +88,7 @@
 				E2E4FA891745019E007EACB5 /* UIKit.framework */,
 				E2E4FA8B1745019E007EACB5 /* Foundation.framework */,
 				E2E4FA8D1745019E007EACB5 /* CoreGraphics.framework */,
+				BE359F9C0871B02435FA4A0C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2E4FAA91745019E007EACB5 /* Build configuration list for PBXNativeTarget "PopoverDemo" */;
 			buildPhases = (
+				DBA7625F5736F40E55561CB3 /* Check Pods Manifest.lock */,
 				E2E4FA821745019E007EACB5 /* Sources */,
 				E2E4FA831745019E007EACB5 /* Frameworks */,
 				E2E4FA841745019E007EACB5 /* Resources */,
+				F03ED3CE131D7A4241D29061 /* Embed Pods Frameworks */,
+				9F736331D8CBE60934A2EF3C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +148,9 @@
 		E2E4FA7E1745019E007EACB5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1001,
+				);
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Arthur Knopper";
 			};
@@ -160,6 +182,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9F736331D8CBE60934A2EF3C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBA7625F5736F40E55561CB3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F03ED3CE131D7A4241D29061 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E2E4FA821745019E007EACB5 /* Sources */ = {
@@ -256,6 +326,7 @@
 		};
 		E2E4FAAA1745019E007EACB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D61A7E00165EF893CEC2B2DD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PopoverDemo/PopoverDemo-Prefix.pch";
@@ -268,6 +339,7 @@
 		};
 		E2E4FAAB1745019E007EACB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 332A0EE579A225DCC3841C63 /* Pods.release.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PopoverDemo/PopoverDemo-Prefix.pch";

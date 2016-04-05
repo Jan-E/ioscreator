@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PopoverViewController.h"
+#import "UIColor+BFPaperColors.h"
 
 @interface ViewController () <UIPopoverPresentationControllerDelegate>
 
@@ -21,10 +22,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *projectButton;
 @property (weak, nonatomic) IBOutlet UIButton *caseButton;
 @property (weak, nonatomic) IBOutlet UIButton *sessionButton;
+@property (nonatomic) IBOutlet BFPaperCheckbox *certCheckbox;
+@property (nonatomic) IBOutlet UILabel *paperCheckboxLabel;
 
 - (IBAction)projectPopover:(UIButton *)sender;
 - (IBAction)casePopover:(UIButton *)sender;
 - (IBAction)sessionPopover:(UIButton *)sender;
+- (IBAction)certToggle:(UIButton *)sender;
 
 @end
 
@@ -34,6 +38,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.certCheckbox.delegate = self;
     
     // For the demo
     self.projectIndex = 1;
@@ -155,6 +161,24 @@
     self.popOverP.sourceRect = sender.frame;
     self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
     [self presentViewController:popNav animated:YES completion:nil];
+}
+
+- (IBAction)certToggle:(UIButton *)sender
+{
+    BOOL animate = 1;
+    // (1) Swap paperCheckbox's state with the 'switchStates...' method:
+    [self.certCheckbox switchStatesAnimated:animate];
+}
+
+#pragma mark - BFPaperCheckbox Delegate
+- (void)paperCheckboxChangedState:(BFPaperCheckbox *)checkbox
+{
+    NSLog(@"checkbox.tag %ld", (long)checkbox.tag);
+    if (checkbox.tag == 1001) {      // First box
+        self.paperCheckboxLabel.text = self.certCheckbox.isChecked ? @"[ON]" : @"[OFF]";
+    }
+    else if (checkbox.tag == 1002) { // Second box
+    }
 }
 
 # pragma mark - Popover Presentation Controller Delegate

@@ -67,10 +67,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Cert Checkbox" customClass="BFPaperCheckbox">
-                    <rect key="frame" x="397" y="263" width="50" height="50"/>
+                    <rect key="frame" x="397" y="245" width="80" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="03a-b5-lac"/>
-                        <constraint firstAttribute="height" constant="50" id="LcB-zH-Nqc"/>
+                        <constraint firstAttribute="width" constant="80" id="DRc-Wt-oHi"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                 </button>
@@ -96,23 +95,24 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="gum-rY-L1e" firstAttribute="leading" secondItem="c0o-UI-3cm" secondAttribute="leading" id="3C2-ih-frx"/>
                 <constraint firstItem="SwW-6D-Acy" firstAttribute="top" secondItem="4NT-Tc-cqY" secondAttribute="top" id="55o-s5-lcT"/>
                 <constraint firstItem="SwW-6D-Acy" firstAttribute="trailing" secondItem="4NT-Tc-cqY" secondAttribute="trailing" id="6pX-q7-hZi"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="Mne-Rp-rbS"/>
+                <constraint firstItem="gum-rY-L1e" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="35" id="Q4u-T0-QEo"/>
                 <constraint firstItem="At2-YZ-reH" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="15" id="S2R-s3-t1d"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="15" id="UKr-kj-hRf"/>
+                <constraint firstItem="gum-rY-L1e" firstAttribute="leading" secondItem="4NT-Tc-cqY" secondAttribute="leading" id="VJG-NI-th8"/>
                 <constraint firstItem="4NT-Tc-cqY" firstAttribute="top" secondItem="c0o-UI-3cm" secondAttribute="bottom" constant="15" id="XNM-4t-nHE"/>
                 <constraint firstItem="4NT-Tc-cqY" firstAttribute="trailing" secondItem="c0o-UI-3cm" secondAttribute="trailing" id="c2k-8G-lH7"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="dNT-Mm-gxV"/>
                 <constraint firstItem="4" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="eRO-Id-dw9"/>
-                <constraint firstItem="gum-rY-L1e" firstAttribute="top" secondItem="c0o-UI-3cm" secondAttribute="bottom" constant="8" symbolic="YES" id="fac-qN-X7p"/>
                 <constraint firstItem="SwW-6D-Acy" firstAttribute="bottom" secondItem="4NT-Tc-cqY" secondAttribute="bottom" id="kal-hj-D44"/>
+                <constraint firstItem="gum-rY-L1e" firstAttribute="centerY" secondItem="4NT-Tc-cqY" secondAttribute="centerY" id="klm-f5-ePW"/>
                 <constraint firstItem="efe-Hw-2lu" firstAttribute="trailing" secondItem="2" secondAttribute="trailingMargin" id="lC4-kI-vvG"/>
                 <constraint firstItem="efe-Hw-2lu" firstAttribute="top" secondItem="2" secondAttribute="top" constant="22" id="li8-Ec-avL"/>
                 <constraint firstItem="4" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="olB-SA-aKt"/>
                 <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="135" id="uTb-zU-Ito"/>
-                <constraint firstItem="4NT-Tc-cqY" firstAttribute="leading" secondItem="gum-rY-L1e" secondAttribute="leading" id="wLN-ZM-Zpq"/>
+                <constraint firstItem="gum-rY-L1e" firstAttribute="leading" secondItem="c0o-UI-3cm" secondAttribute="leading" id="xdY-jg-Hf9"/>
                 <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="103" id="zND-Me-AsS"/>
             </constraints>
             <point key="canvasLocation" x="257" y="269"/>

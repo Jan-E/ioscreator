@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4">
                     <rect key="frame" x="397" y="135" width="268" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="268" id="9tb-NJ-PLE"/>
@@ -33,7 +33,7 @@
                         <action selector="projectPopover:" destination="-1" eventType="touchUpInside" id="mAh-ax-6fb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At2-YZ-reH">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At2-YZ-reH">
                     <rect key="frame" x="397" y="180" width="268" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Ud7-H7-Lth"/>
@@ -44,7 +44,7 @@
                         <action selector="casePopover:" destination="-1" eventType="touchUpInside" id="XlK-Yt-1aM"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-UI-3cm">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-UI-3cm">
                     <rect key="frame" x="397" y="225" width="268" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="rG1-Mh-J1J"/>
@@ -55,28 +55,21 @@
                         <action selector="sessionPopover:" destination="-1" eventType="touchUpInside" id="8Pc-GR-SlN"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NT-Tc-cqY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NT-Tc-cqY">
                     <rect key="frame" x="397" y="270" width="268" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="rpe-Za-1kO"/>
+                        <constraint firstAttribute="height" constant="30" id="jxP-mX-aqC"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title="Certification"/>
+                    <state key="normal" title="Certification video"/>
                     <connections>
                         <action selector="certToggle:" destination="-1" eventType="touchUpInside" id="zyr-Ws-fzp"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Cert Checkbox" customClass="BFPaperCheckbox">
-                    <rect key="frame" x="397" y="245" width="80" height="80"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[OFF}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwW-6D-Acy" userLabel="Certification on/off label">
+                    <rect key="frame" x="605" y="270" width="42" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="DRc-Wt-oHi"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[OFF}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwW-6D-Acy">
-                    <rect key="frame" x="623" y="270" width="42" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="42" id="Y1y-dk-w59"/>
+                        <constraint firstAttribute="width" constant="42" id="uiu-is-3Nx"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.2014627659574468" colorSpace="calibratedRGB"/>
@@ -92,27 +85,35 @@
                         <action selector="reload" destination="-2" eventType="touchUpInside" id="hvR-Rh-aK4"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Certification checkbox" customClass="BFPaperCheckbox">
+                    <rect key="frame" x="525" y="245" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="feF-Ty-VC5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="SwW-6D-Acy" firstAttribute="top" secondItem="4NT-Tc-cqY" secondAttribute="top" id="55o-s5-lcT"/>
-                <constraint firstItem="SwW-6D-Acy" firstAttribute="trailing" secondItem="4NT-Tc-cqY" secondAttribute="trailing" id="6pX-q7-hZi"/>
+                <constraint firstItem="4NT-Tc-cqY" firstAttribute="trailing" secondItem="c0o-UI-3cm" secondAttribute="trailing" id="4om-3u-aTw"/>
+                <constraint firstItem="SwW-6D-Acy" firstAttribute="centerY" secondItem="gum-rY-L1e" secondAttribute="centerY" id="5ay-nW-JdN"/>
+                <constraint firstAttribute="trailing" secondItem="SwW-6D-Acy" secondAttribute="trailing" constant="121" id="5hd-fL-zVd"/>
+                <constraint firstItem="SwW-6D-Acy" firstAttribute="top" secondItem="4NT-Tc-cqY" secondAttribute="top" id="8OQ-p8-UAK"/>
+                <constraint firstItem="4NT-Tc-cqY" firstAttribute="leading" secondItem="c0o-UI-3cm" secondAttribute="leading" id="Jd7-a4-qtY"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="Mne-Rp-rbS"/>
-                <constraint firstItem="gum-rY-L1e" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="35" id="Q4u-T0-QEo"/>
+                <constraint firstItem="4NT-Tc-cqY" firstAttribute="top" secondItem="2" secondAttribute="top" constant="270" id="S2B-C4-n23"/>
                 <constraint firstItem="At2-YZ-reH" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="15" id="S2R-s3-t1d"/>
+                <constraint firstItem="SwW-6D-Acy" firstAttribute="leading" secondItem="gum-rY-L1e" secondAttribute="trailing" id="SoS-w3-WFA"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="15" id="UKr-kj-hRf"/>
-                <constraint firstItem="gum-rY-L1e" firstAttribute="leading" secondItem="4NT-Tc-cqY" secondAttribute="leading" id="VJG-NI-th8"/>
-                <constraint firstItem="4NT-Tc-cqY" firstAttribute="top" secondItem="c0o-UI-3cm" secondAttribute="bottom" constant="15" id="XNM-4t-nHE"/>
-                <constraint firstItem="4NT-Tc-cqY" firstAttribute="trailing" secondItem="c0o-UI-3cm" secondAttribute="trailing" id="c2k-8G-lH7"/>
+                <constraint firstItem="gum-rY-L1e" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="35" id="aGB-6c-47e"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="dNT-Mm-gxV"/>
                 <constraint firstItem="4" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="eRO-Id-dw9"/>
-                <constraint firstItem="SwW-6D-Acy" firstAttribute="bottom" secondItem="4NT-Tc-cqY" secondAttribute="bottom" id="kal-hj-D44"/>
-                <constraint firstItem="gum-rY-L1e" firstAttribute="centerY" secondItem="4NT-Tc-cqY" secondAttribute="centerY" id="klm-f5-ePW"/>
+                <constraint firstItem="4NT-Tc-cqY" firstAttribute="top" secondItem="c0o-UI-3cm" secondAttribute="bottom" constant="15" id="fVW-Yu-q89"/>
                 <constraint firstItem="efe-Hw-2lu" firstAttribute="trailing" secondItem="2" secondAttribute="trailingMargin" id="lC4-kI-vvG"/>
                 <constraint firstItem="efe-Hw-2lu" firstAttribute="top" secondItem="2" secondAttribute="top" constant="22" id="li8-Ec-avL"/>
+                <constraint firstItem="SwW-6D-Acy" firstAttribute="bottom" secondItem="4NT-Tc-cqY" secondAttribute="bottom" id="meS-qk-YK4"/>
                 <constraint firstItem="4" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="olB-SA-aKt"/>
                 <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="135" id="uTb-zU-Ito"/>
-                <constraint firstItem="gum-rY-L1e" firstAttribute="leading" secondItem="c0o-UI-3cm" secondAttribute="leading" id="xdY-jg-Hf9"/>
                 <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="103" id="zND-Me-AsS"/>
             </constraints>
             <point key="canvasLocation" x="257" y="269"/>

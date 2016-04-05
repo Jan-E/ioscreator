@@ -1,0 +1,13 @@
+PODS:
+  - BFPaperCheckbox (1.2.7):
+    - UIColor+BFPaperColors
+  - UIColor+BFPaperColors (1.7.2)
+
+DEPENDENCIES:
+  - BFPaperCheckbox (~> 1.2.7)
+
+SPEC CHECKSUMS:
+  BFPaperCheckbox: 55670e5d8dc1e060972b0d1db6380771339451d8
+  UIColor+BFPaperColors: 03101fe6c10ed00c6daae7c26553f1de41500853
+
+COCOAPODS: 0.39.0

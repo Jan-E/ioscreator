@@ -30,6 +30,7 @@
     // registerClass http://stackoverflow.com/a/25835438
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"editableCell"];
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
@@ -161,6 +162,7 @@
     self.cellSelected = i + 1;
     NSLog(@"didSelectRowAtIndexPath %ld, self.cellSelected = %ld", (long)indexPath.row, (long)self.cellSelected);
     self.myTextField.text = @"";
+    [self.myTextField resignFirstResponder];
     
     // Navigation logic may go here. Create and push another view controller.
     /*

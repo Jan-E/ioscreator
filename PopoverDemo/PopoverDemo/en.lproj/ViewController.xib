@@ -28,6 +28,7 @@
                         <constraint firstAttribute="height" constant="30" id="ISA-N3-m1C"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Project"/>
                     <connections>
                         <action selector="projectPopover:" destination="-1" eventType="touchUpInside" id="mAh-ax-6fb"/>
                     </connections>

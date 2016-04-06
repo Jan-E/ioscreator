@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -94,17 +94,10 @@
                         <action selector="certToggle:" destination="-1" eventType="touchUpInside" id="zyr-Ws-fzp"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Certification checkbox" customClass="BFPaperCheckbox">
-                    <rect key="frame" x="525" y="245" width="80" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="feF-Ty-VC5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[OFF}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwW-6D-Acy" userLabel="Certification on/off label">
-                    <rect key="frame" x="605" y="270" width="42" height="30"/>
+                    <rect key="frame" x="550" y="270" width="42" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="42" id="uiu-is-3Nx"/>
+                        <constraint firstAttribute="width" constant="42" id="i5P-SN-7EL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.2014627659574468" colorSpace="calibratedRGB"/>
@@ -120,36 +113,43 @@
                         <action selector="reload" destination="-2" eventType="touchUpInside" id="hvR-Rh-aK4"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Certification checkbox" customClass="BFPaperCheckbox">
+                    <rect key="frame" x="317" y="245" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Wej-Wc-DPg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="103" id="4Er-2G-vok"/>
                 <constraint firstItem="4NT-Tc-cqY" firstAttribute="trailing" secondItem="c0o-UI-3cm" secondAttribute="trailing" id="4om-3u-aTw"/>
-                <constraint firstItem="SwW-6D-Acy" firstAttribute="centerY" secondItem="gum-rY-L1e" secondAttribute="centerY" id="5ay-nW-JdN"/>
-                <constraint firstAttribute="trailing" secondItem="SwW-6D-Acy" secondAttribute="trailing" constant="121" id="5hd-fL-zVd"/>
                 <constraint firstItem="BiM-2s-qDa" firstAttribute="top" secondItem="2" secondAttribute="top" constant="167" id="83T-dq-Uhg"/>
-                <constraint firstItem="SwW-6D-Acy" firstAttribute="top" secondItem="4NT-Tc-cqY" secondAttribute="top" id="8OQ-p8-UAK"/>
+                <constraint firstItem="SwW-6D-Acy" firstAttribute="top" secondItem="4NT-Tc-cqY" secondAttribute="top" id="Bj6-km-K6M"/>
                 <constraint firstItem="HtR-gQ-BIp" firstAttribute="trailing" secondItem="BiM-2s-qDa" secondAttribute="trailing" id="CHB-hG-8vF"/>
                 <constraint firstItem="HtR-gQ-BIp" firstAttribute="top" secondItem="awh-X8-zzd" secondAttribute="bottom" constant="44" id="D0x-9G-pzx"/>
+                <constraint firstItem="gum-rY-L1e" firstAttribute="top" secondItem="BiM-2s-qDa" secondAttribute="bottom" constant="32" id="DUZ-Pd-EU8"/>
                 <constraint firstItem="HtR-gQ-BIp" firstAttribute="leading" secondItem="BiM-2s-qDa" secondAttribute="leading" id="Gpo-A8-AgJ"/>
                 <constraint firstItem="4" firstAttribute="leading" secondItem="awh-X8-zzd" secondAttribute="trailing" id="Iwl-Fc-jrz"/>
                 <constraint firstItem="4NT-Tc-cqY" firstAttribute="leading" secondItem="c0o-UI-3cm" secondAttribute="leading" id="Jd7-a4-qtY"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="Mne-Rp-rbS"/>
+                <constraint firstItem="gum-rY-L1e" firstAttribute="trailing" secondItem="HtR-gQ-BIp" secondAttribute="trailing" id="P5y-CA-Wyh"/>
                 <constraint firstItem="awh-X8-zzd" firstAttribute="top" secondItem="2" secondAttribute="top" constant="122" id="RUB-JV-Pd8"/>
                 <constraint firstItem="4NT-Tc-cqY" firstAttribute="top" secondItem="2" secondAttribute="top" constant="270" id="S2B-C4-n23"/>
-                <constraint firstItem="SwW-6D-Acy" firstAttribute="leading" secondItem="gum-rY-L1e" secondAttribute="trailing" id="SoS-w3-WFA"/>
                 <constraint firstItem="4" firstAttribute="leading" secondItem="At2-YZ-reH" secondAttribute="leading" id="TDr-6b-OO8"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="15" id="UKr-kj-hRf"/>
-                <constraint firstItem="gum-rY-L1e" firstAttribute="top" secondItem="At2-YZ-reH" secondAttribute="bottom" constant="35" id="aGB-6c-47e"/>
+                <constraint firstItem="gum-rY-L1e" firstAttribute="centerY" secondItem="SwW-6D-Acy" secondAttribute="centerY" id="cF1-Ke-iBx"/>
+                <constraint firstAttribute="trailing" secondItem="SwW-6D-Acy" secondAttribute="trailing" constant="176" id="cKS-Z6-a7z"/>
                 <constraint firstItem="4" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="caR-X6-EMS"/>
                 <constraint firstItem="c0o-UI-3cm" firstAttribute="trailing" secondItem="At2-YZ-reH" secondAttribute="trailing" id="dNT-Mm-gxV"/>
                 <constraint firstItem="4NT-Tc-cqY" firstAttribute="top" secondItem="c0o-UI-3cm" secondAttribute="bottom" constant="15" id="fVW-Yu-q89"/>
                 <constraint firstItem="awh-X8-zzd" firstAttribute="trailing" secondItem="BiM-2s-qDa" secondAttribute="trailing" id="ftn-JH-GRn"/>
                 <constraint firstItem="efe-Hw-2lu" firstAttribute="trailing" secondItem="2" secondAttribute="trailingMargin" id="lC4-kI-vvG"/>
                 <constraint firstItem="efe-Hw-2lu" firstAttribute="top" secondItem="2" secondAttribute="top" constant="22" id="li8-Ec-avL"/>
-                <constraint firstItem="SwW-6D-Acy" firstAttribute="bottom" secondItem="4NT-Tc-cqY" secondAttribute="bottom" id="meS-qk-YK4"/>
                 <constraint firstItem="At2-YZ-reH" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="15" id="pvI-Vn-8By"/>
                 <constraint firstItem="awh-X8-zzd" firstAttribute="leading" secondItem="BiM-2s-qDa" secondAttribute="leading" id="tnb-sf-IPi"/>
+                <constraint firstItem="SwW-6D-Acy" firstAttribute="bottom" secondItem="4NT-Tc-cqY" secondAttribute="bottom" id="xc3-Rh-T8u"/>
             </constraints>
             <point key="canvasLocation" x="257" y="269"/>
         </view>

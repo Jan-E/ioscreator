@@ -53,7 +53,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 - (IBAction)projectPopover:(UIButton *)sender {
     self.popVC = [[PopoverViewController alloc] initWithNibName:nil bundle:nil];
     self.popVC.senderButton = @"Project";
@@ -63,17 +62,17 @@
     self.popVC.cellNames = [[NSMutableArray alloc] init];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Alpha"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Beta"]];
-    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
-    self.popVC.cellSelected = self.projectIndex;;
+    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<16 ? 41*self.popVC.cellNames.count : 666));
+    self.popVC.cellSelected = self.projectIndex;
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
     self.popOverP = popNav.popoverPresentationController;
     self.popOverP.delegate = self;
-    self.popOverP.sourceView = self.view;
-    self.popOverP.sourceRect = sender.frame;
-    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    self.popOverP.sourceView = self.projectButton;
+    self.popOverP.sourceRect = self.projectButton.bounds;
+    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionRight;
     [self presentViewController:popNav animated:YES completion:nil];
 }
 
@@ -115,7 +114,7 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Alpha - 28"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Alpha - 29"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Alpha - 30"]];
-    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
+    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<16 ? 41*self.popVC.cellNames.count : 666));
     self.popVC.cellSelected = self.caseIndex;
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     
@@ -123,9 +122,9 @@
     popNav.navigationBarHidden = YES;
     self.popOverP = popNav.popoverPresentationController;
     self.popOverP.delegate = self;
-    self.popOverP.sourceView = self.view;
-    self.popOverP.sourceRect = sender.frame;
-    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    self.popOverP.sourceView = self.caseButton;
+    self.popOverP.sourceRect = self.caseButton.bounds;
+    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionRight;
     [self presentViewController:popNav animated:YES completion:nil];
 }
 
@@ -149,7 +148,7 @@
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 11"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"Session 12"]];
     [self.popVC.cellNames addObject:[NSString stringWithFormat:@"%@", (self.sessionTitle ? self.sessionTitle : @"")]];
-    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<10 ? 45*self.popVC.cellNames.count : 450));
+    self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<16 ? 41*self.popVC.cellNames.count : 666));
     self.popVC.cellSelected = self.sessionIndex;
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
     
@@ -157,9 +156,9 @@
     popNav.navigationBarHidden = YES;
     self.popOverP = popNav.popoverPresentationController;
     self.popOverP.delegate = self;
-    self.popOverP.sourceView = self.view;
-    self.popOverP.sourceRect = sender.frame;
-    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    self.popOverP.sourceView = self.sessionButton;
+    self.popOverP.sourceRect = self.sessionButton.bounds;
+    self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionRight;
     [self presentViewController:popNav animated:YES completion:nil];
 }
 
@@ -187,7 +186,8 @@
     //NSLog(@"called when a Popover is dismissed");
     NSLog(@"dismissed %@, self.popVC.cellSelected = %ld", self.popVC.senderButton, (long)self.popVC.cellSelected);
     UITextField *editableCell = self.popVC.myTextField;
-    if (self.popVC.cellSelected > 0 || ![editableCell.text isEqual: @""]) {
+    if ((self.popVC.cellSelected > 0 && self.popVC.cellSelected <= self.popVC.cellNames.count)
+        || ([self.popVC.senderButton isEqual: @"Session"] && ![editableCell.text isEqual: @""])) {
         if ([self.popVC.senderButton isEqual: @"Project"]) {
             NSInteger i = self.popVC.cellSelected - 1;
             NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];

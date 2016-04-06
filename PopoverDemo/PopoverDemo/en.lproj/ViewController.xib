@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -28,16 +28,28 @@
                         <constraint firstAttribute="height" constant="46" id="vJZ-5a-yKJ"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                    <rect key="frame" x="397" y="135" width="268" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Ga4-0j-dK9"/>
+                        <constraint firstAttribute="width" constant="268" id="kg6-8o-bOC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Select project"/>
+                    <connections>
+                        <action selector="projectPopover:" destination="-1" eventType="touchUpInside" id="mAh-ax-6fb"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Case" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiM-2s-qDa">
                     <rect key="frame" x="189" y="167" width="208" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="2s8-Eo-nVd"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At2-YZ-reH">
@@ -57,7 +69,7 @@
                         <constraint firstAttribute="height" constant="46" id="xOc-Q9-yhe"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-UI-3cm">
@@ -82,6 +94,13 @@
                         <action selector="certToggle:" destination="-1" eventType="touchUpInside" id="zyr-Ws-fzp"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Certification checkbox" customClass="BFPaperCheckbox">
+                    <rect key="frame" x="525" y="245" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="feF-Ty-VC5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[OFF}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwW-6D-Acy" userLabel="Certification on/off label">
                     <rect key="frame" x="605" y="270" width="42" height="30"/>
                     <constraints>
@@ -99,25 +118,6 @@
                     <state key="normal" title="Next"/>
                     <connections>
                         <action selector="reload" destination="-2" eventType="touchUpInside" id="hvR-Rh-aK4"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Certification checkbox" customClass="BFPaperCheckbox">
-                    <rect key="frame" x="525" y="245" width="80" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="feF-Ty-VC5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                    <rect key="frame" x="397" y="135" width="268" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Ga4-0j-dK9"/>
-                        <constraint firstAttribute="width" constant="268" id="kg6-8o-bOC"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title="Select project"/>
-                    <connections>
-                        <action selector="projectPopover:" destination="-1" eventType="touchUpInside" id="mAh-ax-6fb"/>
                     </connections>
                 </button>
             </subviews>

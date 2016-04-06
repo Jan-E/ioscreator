@@ -42,10 +42,10 @@
     self.certCheckbox.delegate = self;
     
     // For the demo
-    self.projectIndex = 1;
-    self.caseIndex = 14;
-    self.sessionIndex = 10;
-    NSLog(@"Preselections for demo: %ld %ld %ld", (long)self.projectIndex, (long)self.caseIndex, (long)self.sessionIndex);
+    // self.projectIndex = 1;
+    // self.caseIndex = 14;
+    // self.sessionIndex = 10;
+    // NSLog(@"Preselections for demo: %ld %ld %ld", (long)self.projectIndex, (long)self.caseIndex, (long)self.sessionIndex);
 }
 
 - (void)didReceiveMemoryWarning

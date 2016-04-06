@@ -71,8 +71,8 @@
     popNav.navigationBarHidden = YES;
     self.popOverP = popNav.popoverPresentationController;
     self.popOverP.delegate = self;
-    self.popOverP.sourceView = self.view;
-    self.popOverP.sourceRect = sender.frame;
+    self.popOverP.sourceView = self.projectButton;
+    self.popOverP.sourceRect = self.projectButton.bounds;
     self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
     [self presentViewController:popNav animated:YES completion:nil];
 }
@@ -123,8 +123,8 @@
     popNav.navigationBarHidden = YES;
     self.popOverP = popNav.popoverPresentationController;
     self.popOverP.delegate = self;
-    self.popOverP.sourceView = self.view;
-    self.popOverP.sourceRect = sender.frame;
+    self.popOverP.sourceView = self.caseButton;
+    self.popOverP.sourceRect = self.caseButton.bounds;
     self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionUp;
     [self presentViewController:popNav animated:YES completion:nil];
 }
@@ -157,8 +157,8 @@
     popNav.navigationBarHidden = YES;
     self.popOverP = popNav.popoverPresentationController;
     self.popOverP.delegate = self;
-    self.popOverP.sourceView = self.view;
-    self.popOverP.sourceRect = sender.frame;
+    self.popOverP.sourceView = self.sessionButton;
+    self.popOverP.sourceRect = self.sessionButton.bounds;
     self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionDown;
     [self presentViewController:popNav animated:YES completion:nil];
 }

@@ -94,6 +94,13 @@
                         <action selector="certToggle:" destination="-1" eventType="touchUpInside" id="zyr-Ws-fzp"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Certification checkbox" customClass="BFPaperCheckbox">
+                    <rect key="frame" x="525" y="245" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="feF-Ty-VC5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[OFF}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwW-6D-Acy" userLabel="Certification on/off label">
                     <rect key="frame" x="605" y="270" width="42" height="30"/>
                     <constraints>
@@ -112,13 +119,6 @@
                     <connections>
                         <action selector="reload" destination="-2" eventType="touchUpInside" id="hvR-Rh-aK4"/>
                     </connections>
-                </button>
-                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gum-rY-L1e" userLabel="Certification checkbox" customClass="BFPaperCheckbox">
-                    <rect key="frame" x="525" y="245" width="80" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="feF-Ty-VC5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

@@ -168,6 +168,10 @@
     NSLog(@"didSelectRowAtIndexPath %ld, self.cellSelected = %ld", (long)indexPath.row, (long)self.cellSelected);
     self.myTextField.text = @"";
     [self.myTextField resignFirstResponder];
+    if (self.delegateid && [self.delegateid respondsToSelector:@selector(updateViewWithSelectedData:)]) {
+        NSLog(@"self.delegateid %@", self.delegateid);
+        [self.delegateid updateViewWithSelectedData:self.cellNames[i]];
+    }
     
     // Navigation logic may go here. Create and push another view controller.
     /*

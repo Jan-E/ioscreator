@@ -13,7 +13,7 @@
 @interface ViewController () <UIPopoverPresentationControllerDelegate>
 
 //@property (nonatomic,strong) UIPopoverController *popOver;
-@property (nonatomic,retain) UIPopoverPresentationController *popOverP;
+//@property (nonatomic,retain) UIPopoverPresentationController *popOverP;
 @property (nonatomic,retain) PopoverViewController *popVC;
 @property (nonatomic) NSInteger projectIndex;
 @property (nonatomic) NSInteger caseIndex;
@@ -65,6 +65,7 @@
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<16 ? 41*self.popVC.cellNames.count : 666));
     self.popVC.cellSelected = self.projectIndex;
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
+    self.popVC.delegateid = self;
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
@@ -73,6 +74,7 @@
     self.popOverP.sourceView = self.projectButton;
     self.popOverP.sourceRect = self.projectButton.bounds;
     self.popOverP.permittedArrowDirections = UIPopoverArrowDirectionRight;
+
     [self presentViewController:popNav animated:YES completion:nil];
 }
 
@@ -117,6 +119,7 @@
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<16 ? 41*self.popVC.cellNames.count : 666));
     self.popVC.cellSelected = self.caseIndex;
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
+    self.popVC.delegateid = self;
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
@@ -151,6 +154,7 @@
     self.popVC.preferredContentSize = CGSizeMake(280, (self.popVC.cellNames.count<16 ? 41*self.popVC.cellNames.count : 666));
     self.popVC.cellSelected = self.sessionIndex;
     NSLog(@"self.popVC.cellSelected %ld", (long)self.popVC.cellSelected);
+    self.popVC.delegateid = self;
     
     popNav.modalPresentationStyle = UIModalPresentationPopover;
     popNav.navigationBarHidden = YES;
@@ -178,6 +182,51 @@
     }
     else if (checkbox.tag == 1002) { // Second box
     }
+}
+
+#pragma UpdatePresentingViewControllerWithData
+
+-(void)updateViewWithSelectedData:(NSString *)selectedString {
+    NSLog(@"Delegate called with string '%@'", selectedString);
+    UITextField *editableCell = self.popVC.myTextField;
+    if ((self.popVC.cellSelected > 0 && self.popVC.cellSelected <= self.popVC.cellNames.count)
+        || ([self.popVC.senderButton isEqual: @"Session"] && ![editableCell.text isEqual: @""])) {
+        if ([self.popVC.senderButton isEqual: @"Project"]) {
+            NSInteger i = self.popVC.cellSelected - 1;
+            NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+            [self.projectButton setTitle:s forState:UIControlStateNormal];
+            self.projectIndex = i + 1;
+            NSLog(@"projectButton := %@ (row %ld)", s, (long)i);
+        }
+        if ([self.popVC.senderButton isEqual: @"Case"]) {
+            NSInteger i = self.popVC.cellSelected - 1;
+            NSString *s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+            [self.caseButton setTitle:s forState:UIControlStateNormal];
+            self.caseIndex = i + 1;
+            NSLog(@"caseButton := %@ (row %ld)", s, (long)i);
+        }
+        if ([self.popVC.senderButton  isEqual: @"Session"]) {
+            NSLog(@"editableCell %@", editableCell.text);
+            NSInteger i;
+            NSString *s;
+            if (editableCell.text && ![editableCell.text isEqual: @""]) {
+                i = self.popVC.cellNames.count - 1;
+                s = editableCell.text;
+                self.sessionTitle = s;
+            } else {
+                i = self.popVC.cellSelected - 1;
+                s = [NSString stringWithFormat:@"%@", [self.popVC.cellNames objectAtIndex:i]];
+            }
+            [self.sessionButton setTitle:s forState:UIControlStateNormal];
+            self.sessionIndex = i + 1;
+            NSLog(@"sessionButton := %@ (row %ld)", s, (long)i);
+        }
+    }
+    //[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)updateView {
+
 }
 
 # pragma mark - Popover Presentation Controller Delegate

@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UpdatePresentingViewControllerWithData <NSObject>
+
+-(void)updateViewWithSelectedData:(NSString *)selectedString;
+
+@end
+
 @interface PopoverViewController : UITableViewController
+
 @property (nonatomic, strong) NSMutableArray *cellNames;
 @property (nonatomic, strong) NSString *senderButton;
 @property (nonatomic) NSInteger cellSelected;
 @property (nonatomic) NSInteger textFieldEnabled;
 @property (nonatomic) UITextField *myTextField;
 @property (nonatomic) NSInteger textFieldLoaded;
+@property (nonatomic, assign) id<UpdatePresentingViewControllerWithData> delegateid;
 
 @end

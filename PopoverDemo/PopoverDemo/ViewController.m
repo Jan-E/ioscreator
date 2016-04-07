@@ -189,7 +189,7 @@
 
 -(void)updateViewWithSelectedData:(NSString *)selectedString {
     NSLog(@"Delegate called with string '%@'", selectedString);
-    [self updateView];
+    [self WithChosenData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -198,10 +198,10 @@
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
     //NSLog(@"called when a Popover is dismissed");
     NSLog(@"dismissed %@, self.popVC.cellSelected = %ld", self.popVC.senderButton, (long)self.popVC.cellSelected);
-    [self updateView];
+    [self updateViewWithChosenData];
 }
 
--(void)updateView {
+-(void)updateViewWithChosenData {
     UITextField *editableCell = self.popVC.myTextField;
     if ((self.popVC.cellSelected > 0 && self.popVC.cellSelected <= self.popVC.cellNames.count)
         || ([self.popVC.senderButton isEqual: @"Session"] && ![editableCell.text isEqual: @""])) {

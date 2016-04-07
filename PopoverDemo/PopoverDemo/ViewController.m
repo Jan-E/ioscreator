@@ -189,7 +189,7 @@
 
 -(void)updateViewWithSelectedData:(NSString *)selectedString {
     NSLog(@"Delegate called with string '%@'", selectedString);
-    [self WithChosenData];
+    [self updateViewWithChosenData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

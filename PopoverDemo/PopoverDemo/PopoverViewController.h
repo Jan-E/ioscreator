@@ -11,6 +11,7 @@
 @protocol UpdatePresentingViewControllerWithData <NSObject>
 
 -(void)updateViewWithSelectedData:(NSString *)selectedString;
+-(void)updateView;
 
 @end
 

@@ -15,7 +15,7 @@
 
 @end
 
-@interface PopoverViewController : UITableViewController
+@interface PopoverViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) NSMutableArray *cellNames;
 @property (nonatomic, strong) NSString *senderButton;

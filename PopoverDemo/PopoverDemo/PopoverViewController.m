@@ -101,6 +101,7 @@
         // use different identifier http://stackoverflow.com/a/15350437
         cell = [tableView dequeueReusableCellWithIdentifier:@"editableCell" forIndexPath:indexPath];
         if (!self.textFieldLoaded) {
+            self.myTextField.delegate = self;
             cell.accessoryView = self.myTextField;
             // prevent more next accessoryViews:
             self.textFieldLoaded += 1;
@@ -159,6 +160,23 @@
 }
 */
 
+#pragma mark - UITextField delegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSLog(@"textFieldDidEndEditing %@", textField.text);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.myTextField && ![textField.text isEqual: @""]) {
+        if (self.delegateid && [self.delegateid respondsToSelector:@selector(updateViewWithSelectedData:)]) {
+            self.cellSelected = self.cellNames.count - 1;
+            [self.delegateid updateViewWithSelectedData:textField.text];
+        }
+    }
+    NSLog(@"textFieldShouldReturn %@", textField.text);
+    return YES;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -166,11 +184,12 @@
     NSInteger i = indexPath.row;
     self.cellSelected = i + 1;
     NSLog(@"didSelectRowAtIndexPath %ld, self.cellSelected = %ld", (long)indexPath.row, (long)self.cellSelected);
-    self.myTextField.text = @"";
-    [self.myTextField resignFirstResponder];
-    if (self.delegateid && [self.delegateid respondsToSelector:@selector(updateViewWithSelectedData:)]) {
-        NSLog(@"self.delegateid %@", self.delegateid);
-        [self.delegateid updateViewWithSelectedData:self.cellNames[i]];
+    if (![self.cellNames[i] isEqual: @""]) {
+        self.myTextField.text = @"";
+        [self.myTextField resignFirstResponder];
+        if (self.delegateid && [self.delegateid respondsToSelector:@selector(updateViewWithSelectedData:)]) {
+            [self.delegateid updateViewWithSelectedData:self.cellNames[i]];
+        }
     }
     
     // Navigation logic may go here. Create and push another view controller.
